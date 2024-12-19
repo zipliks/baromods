@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Long Talents Will Go Here
+    Currently, the only talent here is "Generous Donations" -->
+<Talents>
+  <Talent identifier="Generousdonation">
+    <Description tag="talentdescription.generousdonationmoney">
+      <Replace tag="[marks1]" value="500" color="gui.green" />
+      <Replace tag="[marks2]" value="1000" color="gui.green" />
+    </Description>
+    <Description linebreak="true" />
+    <Description tag="talentdescription.generousdonationitem1">
+      <Replace tag="[amount]" value="1" color="gui.green" />
+    </Description>
+    <Description tag="talentdescription.item">
+      <Replace tag="[itemname]" value="entityname.fuelrod" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.item">
+      <Replace tag="[itemname]" value="entityname.oxygentank" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.item">
+      <Replace tag="[itemname]" value="entityname.weldingfueltank" color="gui.orange" />
+    </Description>
+    <Description tag="talentdescription.item">
+      <Replace tag="[itemname]" value="entityname.batterycell" color="gui.orange" />
+    </Description>
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="2,2" sheetelementsize="128,128" />
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="500" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.40" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityGiveMoney amount="50" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="donations" value="1" giveonaddingfirsttime="true" setvalue="true" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.50" />
+        <AbilityConditionHasPermanentStat statidentifier="donations" min="1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="oxygentank" />
+        <CharacterAbilityGivePermanentStat statidentifier="donations" value="-1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.50" />
+        <AbilityConditionHasPermanentStat statidentifier="donations" min="1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="weldingfueltank" />
+        <CharacterAbilityGivePermanentStat statidentifier="donations" value="-1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.50" />
+        <AbilityConditionHasPermanentStat statidentifier="donations" min="1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="batterycell" />
+        <CharacterAbilityGivePermanentStat statidentifier="donations" value="-1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.50" />
+        <AbilityConditionHasPermanentStat statidentifier="donations" min="1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="fuelrod" />
+        <CharacterAbilityGivePermanentStat statidentifier="donations" value="-1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.50" />
+        <AbilityConditionHasPermanentStat statidentifier="donations" min="1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="oxygentank" />
+        <CharacterAbilityGivePermanentStat statidentifier="donations" value="-1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.50" />
+        <AbilityConditionHasPermanentStat statidentifier="donations" min="1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="weldingfueltank" />
+        <CharacterAbilityGivePermanentStat statidentifier="donations" value="-1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.50" />
+        <AbilityConditionHasPermanentStat statidentifier="donations" min="1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="batterycell" />
+        <CharacterAbilityGivePermanentStat statidentifier="donations" value="-1" />
+      </Abilities>
+    </AbilityGroupEffect>
+    <AbilityGroupEffect abilityeffecttype="OnAnyMissionCompleted">
+      <Conditions>
+        <AbilityConditionServerRandom randomchance="0.50" />
+        <AbilityConditionHasPermanentStat statidentifier="donations" min="1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityPutItem itemidentifier="fuelrod" />
+        <CharacterAbilityGivePermanentStat statidentifier="donations" value="-1" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+</Talents>

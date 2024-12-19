@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="Russian" nowhitespace="false" translatedname="Русский">
+  <jobname.blueshield>Синий щит</jobname.blueshield>
+  <jobdescription.blueshield>Неизменная приверженность защите капитана и экипажа. Надежный гарант безопасности на море.</jobdescription.blueshield>
+  <!-- Talent Trees -->
+  <talenttree.personaljesus>Личный Иисус</talenttree.personaljesus>
+  <talenttree.crewhope>Надежда экипажа</talenttree.crewhope>
+</infotexts>

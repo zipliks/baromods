@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<infotexts language="English" nowhitespace="false" translatedname="English">
+  <jobname.blueshield>Blueshield</jobname.blueshield>
+  <jobdescription.blueshield>Dedicated to safeguarding ship captains and crew with unwavering commitment and expertise. A trusted guardian of maritime security.</jobdescription.blueshield>
+  <!-- Items -->
+  <entityname.stunstick>Stunstick</entityname.stunstick>
+  <!-- Talent Trees -->
+  <talenttree.personaljesus>Personal Jesus</talenttree.personaljesus>
+  <talenttree.crewhope>Crew Hope</talenttree.crewhope>
+  <talenttree.onemanapocalypse>One Man Apocalypse</talenttree.onemanapocalypse>
+  <!-- Talents -->
+  <talentname.codegamma>Code Gamma</talentname.codegamma>
+  <talentdescription.codegamma>Deal [amount]% more damage with ‖color:gui.orange‖Revolvers‖end‖ and ‖color:gui.orange‖Handcannons‖end‖ to foes.</talentdescription.codegamma>
+  <talentname.nobodydies>Nobody Dies</talentname.nobodydies>
+  <talentdescription.nobodydies>Medical items you apply are +[amount]% more potent.</talentdescription.nobodydies>
+  <talentname.apocalypsehorseman>The Horseman of the Apocalypse</talentname.apocalypsehorseman>
+  <talentdescription.apocalypsehorseman>Inflict [amount]% more damage for every nearby enemy. Up to [maxamount]%.</talentdescription.apocalypsehorseman>
+  <talentname.shocktherapy>Shock Therapy</talentname.shocktherapy>
+  <talentdescription.shocktherapy>Inflict [amount]% more shock.</talentdescription.shocktherapy>
+  <talentname.brickwall>Brickwall</talentname.brickwall>
+</infotexts>

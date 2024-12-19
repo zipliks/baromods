@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Jobs>
+  <Job identifier="blueshield" maxnumber="1" minkarma="90" initialcount="1" uicolor="0.5,0.86,0.9" vitalitymodifier="10" pricemultiplier="1.15" idlebehavior="Active">
+    <Jobicon>
+      <sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="3,134,114,91" origin="0.5,0.5" />
+    </Jobicon>
+    <JobiconSmall>
+      <sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="3,134,114,91" origin="0.5,0.496994" />
+    </JobiconSmall>
+    <Skills>
+      <Skill identifier="medical" level="60,75" />
+      <Skill identifier="weapons" level="60,75" primary="true" />
+      <Skill identifier="helm" level="0,1" />
+      <Skill identifier="mechanical" level="0,1" />
+      <Skill identifier="electrical" level="0,1" />
+    </Skills>
+    <ItemSet>
+      <Item identifier="idcard" equip="true" showpreview="false" />
+      <Item identifier="blueshieldoutfit" equip="true" outfit="true" />
+      <Item identifier="healthscanner" equip="true" showpreview="true" />
+      <Item identifier="toolbelt" equip="true">
+        <Item identifier="bsimplanter" showpreview="true" />
+        <Item identifier="implantdeathalarm" showpreview="true" />
+        <Item identifier="implantdeathalarm" showpreview="true" />
+        <Item identifier="implantdeathalarm" showpreview="true" />
+        <Item identifier="crewtracker" showpreview="true" />
+      </Item>
+      <Item identifier="stunbaton" showpreview="true">
+        <Item identifier="batterycell" showpreview="false" />
+      </Item>
+      <Item identifier="headset" equip="true" showpreview="false" />
+      <PreviewSprites dims="120,109">
+        <sprite texture="%moddir%/Sprites/blueshield.png" sourcerect="0,0,512,256" offset="0,0" origin="0.5,0.5045872" />
+        <sprite texture="%moddir%/Sprites/blueshield.png" sourcerect="0,0,512,256" offset="-20,15" origin="0.5,0.5" />
+      </PreviewSprites>
+    </ItemSet>
+    <ItemSet>
+      <Item identifier="idcard" equip="true" showpreview="false" />
+      <Item identifier="blueshieldoutfit" equip="true" outfit="true" />
+      <Item identifier="toolbelt" equip="true" />
+      <Item identifier="handcannon" equip="false">
+        <Item identifier="handcannonround" />
+        <Item identifier="handcannonround" />
+        <Item identifier="handcannonround" />
+        <Item identifier="handcannonround" />
+        <Item identifier="handcannonround" />
+        <Item identifier="handcannonround" />
+      </Item>
+      <Item identifier="headset" equip="true" showpreview="false" />
+      <PreviewSprites dims="120,109">
+        <sprite texture="%moddir%/Sprites/blueshield.png" sourcerect="0,0,512,256" offset="0,0" origin="0.5,0.5045872" />
+        <sprite texture="%moddir%/Sprites/blueshield.png" sourcerect="0,0,512,256" offset="-20,15" origin="0.5,0.5" />
+      </PreviewSprites>
+    </ItemSet>
+    <AutonomousObjectives>
+      <Order identifier="rescue" prioritymodifier="1" />
+      <Order identifier="extinguishfires" prioritymodifier="0.5" />
+    </AutonomousObjectives>
+    <AppropriateOrders>
+      <Order identifier="rescue" />
+      <Order identifier="requestfirstaid" />
+    </AppropriateOrders>
+  </Job>
+</Jobs>

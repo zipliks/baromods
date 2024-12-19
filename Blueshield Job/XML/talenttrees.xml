@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TalentTrees>
+  <TalentTree jobidentifier="blueshield">
+    <SubTree identifier="blueshieldprimary" nameidentifier="talenttree.primary" type="primary">
+      <TalentOptions requiredtalents="2" maxchosentalents="2">
+        <TalentOption identifier="codegamma" />
+        <TalentOption identifier="firemanscarry" />
+      </TalentOptions>
+      <TalentOptions requiredtalents="2" maxchosentalents="2">
+        <TalentOption identifier="chainthebeast" />
+        <TalentOption identifier="dunleashthebeast" />
+        <TalentOption identifier="dunleashthebeast" />
+        <TalentOption identifier="dunleashthebeast" />
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="personaljesus" type="specialization" requires="blueshieldprimary" blocks="crewhope,onemanapocalypse">
+      <TalentOptions>
+        <TalentOption identifier="bettertogether" />
+        <TalentOption identifier="supplication" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="geneticenhancement" />
+        <TalentOption identifier="waterbornepathogen" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="blessed" />
+        <TalentOption identifier="cursed" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="resilientgenes" />
+        <TalentOption identifier="xbloodfeast" />
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="crewhope" type="specialization" requires="blueshieldprimary" blocks="personaljesus,onemanapocalypse">
+      <TalentOptions>
+        <TalentOption identifier="dontdieonme" />
+        <TalentOption identifier="nobodydies"/>
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="communityservice" />
+        <TalentOption identifier="forcefulconversion" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="generousdonation" />
+        <TalentOption identifier="sacrifice" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="archbishop" />
+        <TalentOption identifier="fanatic" />
+      </TalentOptions>
+    </SubTree>
+    <SubTree identifier="onemanapocalypse" type="specialization" requires="blueshieldprimary" blocks="crewhope,personaljesus">
+      <TalentOptions>
+        <TalentOption identifier="selfcare" />
+        <TalentOption identifier="shocktherapy" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="brickwall" />
+        <TalentOption identifier="drsubmarine" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="codegamma" />
+        <TalentOption identifier="supersoldiers" />
+      </TalentOptions>
+      <TalentOptions>
+        <TalentOption identifier="apocalypsehorseman" />
+      </TalentOptions>
+    </SubTree>
+  </TalentTree>
+</TalentTrees>

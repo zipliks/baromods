@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Afflictions>
-  <Affliction name="Death Alarm" identifier="deathalarm" description="" type="resistance" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+  <Affliction identifier="deathalarm" type="implant" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
     <Effect minstrength="0" maxstrength="1">
       <StatusEffect target="Character">
         <Conditional Health="lt 0" />
@@ -8,5 +8,169 @@
       </StatusEffect>
     </Effect>
     <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="breathingtube" type="implant" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+        <LuaHook name="character.critical" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="chemicalimplant" type="implant" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+        <LuaHook name="character.critical" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="mindshield" type="implant" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+        <LuaHook name="character.critical" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="weldingshield" type="implant" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+        <LuaHook name="character.critical" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="codegreen" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="codeblue" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="codered" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="codegamma" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="codedelta" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="stunattack" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="pistolattack" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="adrenalinepump" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="sleepcarp" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="captainyouthere" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="lsd" type="debuff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="soultaint" type="debuff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="lawenforcement" type="debuff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="gygaxoverload" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="103,229,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="floppabuff" type="none" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="160,347,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
+  </Affliction>
+  <Affliction identifier="disablerslow" type="debuff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="5" showiconthreshold="1" maxstrength="1">
+    <Effect minstrength="0" maxstrength="1">
+      <StatusEffect target="Character">
+        <Conditional Health="lt 0" />
+      </StatusEffect>
+    </Effect>
+    <icon texture="%moddir%/Sprites/spritesheet.png" sourcerect="179,351,41,12" color="255,255,255,255" origin="0.5011871,0.50535685" />
   </Affliction>
 </Afflictions>

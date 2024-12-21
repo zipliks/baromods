@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Item identifier="bsimplanter" category="Equipment" Tags="smallitem,medical" maxstacksize="1" useinhealthinterface="true" cargocontaineridentifier="metalcrate" scale="0.4"
+    impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="medical" level="30" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="steel" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="fpgacircuit" mincondition="1" outcondition="1" />
+      <Item identifier="steel" mincondition="1" outcondition="1" />
+    </Deconstruct>
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="134,0,28,117" depth="0.6" origin="0.5,0.5" />
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="273,0,64,64" origin="0.5,0.5" />
+    <Body width="10" height="45" density="11" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-2,10" holdangle="40" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+      <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
+        <RequiredItem identifier="implantdeathalarm" type="Contained"/>
+        <Affliction identifier="deathalarm" amount="2" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
+        <RequiredItem identifier="implantchemical" type="Contained"/>
+        <Affliction identifier="chemicalimplant" amount="2" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
+        <RequiredItem identifier="implantmindshield" type="Contained"/>
+        <Affliction identifier="mindshield" amount="2" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
+        <RequiredItem identifier="implantweldingshield" type="Contained"/>
+        <Affliction identifier="weldingshield" amount="2" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
+        <RequiredItem identifier="breathingtube" type="Contained"/>
+        <Affliction identifier="breathingtube" amount="2" />
+        <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+      </StatusEffect>
+      <StatusEffect tags="medical" type="OnSuccess" target="Contained">
+        <Remove />
+      </StatusEffect>
+    </MeleeWeapon>
+    <ItemContainer capacity="1" maxstacksize="1" itempos="0,25" hideitems="true">
+      <SlotIcon slotindex="0" texture="%ModDir%/Sprites/spritesheet.png" sourcerect="136,123,24,35" origin="0.5,0.5" />
+      <Containable items="implant" />
+    </ItemContainer>
+  </Item>
+
+
+  <Item identifier="implantdeathalarm" category="Equipment" Tags="smallitem,implant" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="medical" level="30" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="fpgacircuit" mincondition="1" outcondition="1" />
+    </Deconstruct>
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="136,123,24,35" depth="0.6" origin="0.5,0.5" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" holdpos="30,-20" msg="ItemMsgPickUpSelect" aimable="false" />
+    <Body width="3" height="7" density="11" />
+  </Item>
+
+
+  <Item identifier="crewtracker" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.3" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="medical" level="30" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="fpgacircuit" mincondition="1" outcondition="1" />
+      <Item identifier="plastic" mincondition="1" outcondition="1" />
+    </Deconstruct>
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="0,0,128,128" depth="0.6" origin="0.5,0.5" />
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="0,138,128,16" origin="0.5,0.5" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="60" holdpos="0,0" aimpos="40,0" aimangle="60" handle1="5," msg="ItemMsgPickUpSelect" />
+    <Body width="40" height="25" density="11" />
+    <ItemContainer capacity="5" maxstacksize="1" hideitems="true">
+      <SlotIcon texture="%ModDir%/Sprites/spritesheet.png" sourcerect="340,945,97,79" origin="0.5,0.5" />
+      <Containable items="authkey" />
+    </ItemContainer>
+  </Item>
+
+
+  <Item identifier="breathingtube" category="Equipment" Tags="smallitem,implant" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="medical" level="30" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="fpgacircuit" mincondition="1" outcondition="1" />
+    </Deconstruct>
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="136,123,24,35" depth="0.6" origin="0.5,0.5" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" holdpos="30,-20" msg="ItemMsgPickUpSelect" aimable="false" />
+    <Body width="3" height="7" density="11" />
+  </Item>
+
+
+  <Item identifier="europanlaw" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="286,81,35,41" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="10" />
+      <RequiredItem identifier="steel" amount="1" />
+    </Fabricate>
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="504,0,80,115" origin="0.5,0.5" />
+    <Body width="30" height="50" density="30" />
+    <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-10,0" holdangle="0" reload="1.0" range="50" combatpriority="8" msg="ItemMsgPickUpSelect">
+      <Attack structuredamage="0" itemdamage="2" targetimpulse="5">
+        <Affliction identifier="blunttrauma" strength="8" />
+        <Affliction identifier="stun" strength="0.2" />
+        <Affliction identifier="lawenforcement" strength="30" />
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <Sound file="Content/Items/Weapons/Smack1.ogg" selectionmode="random" range="500" />
+          <Sound file="Content/Items/Weapons/Smack2.ogg" range="500" />
+        </StatusEffect>
+      </Attack>
+    </MeleeWeapon>
+  </Item>
+
+
+  <Item identifier="dogmask" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.2" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="347,228,168,200" origin="0.5,0.5" />
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="345,0,64,65" depth="0.6" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredItem identifier="organicfiber" amount="1" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" holdpos="30,-20" msg="ItemMsgPickUpSelect" aimable="false" />
+    <Body width="40" height="40" density="11" />
+    <Wearable slots="OuterClothes" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select">
+      <sprite name="Dog Mask Wearable" texture="%moddir%/Sprites/spritesheet.png" sourcerect="347,228,168,200" limb="Head" scale="0.2" origin="0.4,0.5" hidelimb="true" alphaclipotherwearables="true"/>
+      <StatusEffect type="OnWearing" target="Character" ObstructVisionAmount="0.1" setvalue="true" disabledeltatime="true" />
+      <StatusEffect type="OnWearing" target="Character">
+        <Affliction identifier="soultaint" amount="1.0" />
+      </StatusEffect>
+    </Wearable>
+  </Item>
+
+
+  <Item identifier="rescuehook" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="0,457,178,71" origin="0.5,0.5" />
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="343,75,66,66" depth="0.6" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="implantchemical" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="medical" level="30" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="sulphuricacid" amount="2" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="fpgacircuit" mincondition="1" outcondition="1" />
+    </Deconstruct>
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="136,123,24,35" depth="0.6" origin="0.5,0.5" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" holdpos="30,-20" msg="ItemMsgPickUpSelect" aimable="false" />
+    <Body width="3" height="7" density="11" />
+  </Item>
+
+
+  <Item identifier="sleepgrenade" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="230,158,25,52" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="boilinggrenade" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="255,158,25,52" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="violentgrenade" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="206,158,24,52" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="sighingtube" category="Equipment" Tags="smallitem,instrument" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.3" impactsoundtag="impact_soft" isshootable="true">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,227,102,16" origin="0.5,0.5" />
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="576,256,64,64" origin="0.5,0.5" />
+    <Sprite texture="Content/Items/Misc/Misc.png" sourcerect="102,16,58,21" depth="0.6" origin="0.5,0.5" />
+    <Body width="58" height="20" density="15" />
+    <RangedWeapon reload="1" />
+    <Holdable slots="RightHand+LeftHand,Any" aimable="false" aimpos="25,15" handle1="-10,0" handle2="0,0" swingamount="20,0" swingspeed="0.5" swingwhenusing="true" msg="ItemMsgPickUpSelect">
+      <sound file="%ModDir%/Sounds/sigh.ogg" type="OnUse" range="1000" />
+    </Holdable>
+  </Item>
+
+
+  <Item identifier="multirevolver" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,227,102,16" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="multirevolverdisabler" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,227,102,16" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="multirevolverlethal" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="0,537,242,123" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item name="" identifier="multirevolverstun_proj" category="Weapon" maxstacksize="1" tags="" Scale="1" impactsoundtag="impact_metal_light">
+    <Sprite texture="%ModDir%/Sprites/spritesheet.png" sourcerect="279,543,13,57" depth="0.55" />
+    <Body width="70" height="15" density="11" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" launchimpulse="15.0" sticktocharacters="true">
+      <Attack structuredamage="0" targetforce="2">
+        <Affliction identifier="stun" strength="1" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget" delay="0.5" disabledeltatime="true">
+        <Conditional entitytype="eq Character" />
+        <ParticleEmitter particle="ElectricShock" DistanceMin="5" DistanceMax="20" ParticleAmount="3" ScaleMin="0.07" ScaleMax="0.1" />
+        <Affliction identifier="electricshock" strength="80" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget" delay="2.5" disabledeltatime="true">
+        <Conditional entitytype="eq Character" />
+        <Affliction identifier="electricshock" strength="35" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" delay="0.5">
+        <Sound file="%ModDir%/Sounds/multimode_tase.ogg" type="OnUse" range="500" selectionmode="Random" />
+        <ParticleEmitter particle="ElectricShock" DistanceMin="5" DistanceMax="20" ParticleAmount="3" ScaleMin="0.07" ScaleMax="0.1" />
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="5" velocitymin="-10" velocitymax="-200" scalemin="0.5" scalemax="1" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+
+
+  <Item name="" identifier="multirevolverdisabler_proj" category="Weapon" scale="0.25" hideinmenus="true">
+    <Sprite texture="%ModDir%/Sprites/spritesheet.png" sourcerect="180,974,350,50" depth="0.55" />
+    <Body width="50" height="2" density="20" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
+    <Projectile characterusable="false" hitscan="false" launchimpulse="20" removeonhit="true" damagedoors="false" penetration="0.5">
+      <ParticleEmitter particle="FlareBubbles" emitacrossrayinterval="50" />
+      <Attack structuredamage="0" targetforce="5" itemdamage="0" severlimbsprobability="0" penetration="0.5">
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="muzzleflashpulselaser" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" />
+        <Explosion range="150.0" ballastfloradamage="50" structuredamage="10" itemdamage="250" force="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false"
+          flashcolor="255,0,0,255">
+          <Affliction identifier="disablerslow" strength="20" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+
+
+  <Item identifier="unica" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.15" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,227,280,171" origin="0.5,0.5" />
+    <Price baseprice="600" sold="false">
+      <Price storeidentifier="merchantoutpost" multiplier="1.5" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" />
+      <Price storeidentifier="merchantresearch" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.9" />
+      <Price storeidentifier="merchantmine" multiplier="1.25" />
+    </Price>
+    <Body width="106" height="49" density="30" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="70" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="3" />
+      <RequiredItem identifier="physicorium" />
+    </Fabricate>
+    <Deconstruct time="30">
+      <Item identifier="titaniumaluminiumalloy" amount="2" />
+      <Item identifier="physicorium" />
+    </Deconstruct>
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="90,10" handle1="-50,-4" handle2="-50,-15" msg="ItemMsgPickUpSelect" />
+    <RangedWeapon reload="0.28" barrelpos="40,6" spread="0" unskilledspread="8" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="%ModDir%/Sounds/unica.ogg" type="OnUse" range="3000" />
+      <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="9.0,9.0" colormultiplier="255,200,115,200" />
+      <StatusEffect type="OnUse" target="This">
+        <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+        <Explosion range="200.0" force="20" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="9.0" />
+      </StatusEffect>
+      <RequiredItems items="unicaround" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="60" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" maxstacksize="7" hideitems="false" containedstateindicatorstyle="bullet">
+      <Containable items="unicaround" hide="true" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="60" />
+  </Item>
+
+
+  <Item identifier="unicaround" category="Equipment" Tags="smallitem" maxstacksize="7" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="388,178,50,20" origin="0.5,0.5" />
+    <PreferredContainer secondary="wreckarmcab,abandonedarmcab,piratearmcab" minamount="4" maxamount="8" spawnprobability="0.3" />
+    <PreferredContainer primary="secarmcab" />
+    <Body width="34" height="14" density="30" />
+    <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <Projectile characterusable="false" hitscan="true" removeonhit="true">
+      <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="255,200,115,200" scalemultiplier="1.5,1.5" />
+      <Attack structuredamage="40" targetforce="40" itemdamage="40" severlimbsprobability="2.0" penetration="1">
+        <Affliction identifier="gunshotwound" strength="130" />
+        <Affliction identifier="bleeding" strength="60" />
+        <Affliction identifier="stun" strength="3" />
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" scalemultiplier="9,9" colormultiplier="255,200,115,200" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+        <ParticleEmitter particle="spark" copyentityangle="true" anglemin="-10" anglemax="10" particleamount="10" velocitymin="-10" velocitymax="-200" scalemin="0.75" scalemax="1.5" />
+      </StatusEffect>
+    </Projectile>
+  </Item>
+
+
+  <Item identifier="lsd" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="301,153,64,64" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="medicalfabricator" requiredtime="2" requiresrecipe="true">
+      <RequiredSkill identifier="medical" level="10" />
+      <RequiredItem identifier="alienblood" />
+    </Fabricate>
+    <Body width="4" height="4" density="20" />
+    <Holdable slots="Any,RightHand,LeftHand" aimpos="32,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" target="This" duration="1">
+        <Remove />
+      </StatusEffect>
+      <!-- When drunk -->
+      <StatusEffect type="OnSecondaryUse" target="This,UseTarget" delay="10" duration="1" stackable="false">
+        <Affliction identifier="lsd" amount="100.0" />
+        <Remove />
+      </StatusEffect>
+      <!-- When used in Health GUI -->
+      <StatusEffect type="OnUse" target="This, Limb" duration="10">
+        <Affliction identifier="lsd" amount="100.0" />
+      </StatusEffect>
+    </Holdable>
+  </Item>
+
+
+  <Item identifier="commsterminal" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,677,166,154" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="floppaportal" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="457,161,49,43" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="implantweldingshield" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="medical" level="30" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="fpgacircuit" mincondition="1" outcondition="1" />
+    </Deconstruct>
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="136,123,24,35" depth="0.6" origin="0.5,0.5" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" holdpos="30,-20" msg="ItemMsgPickUpSelect" aimable="false" />
+    <Body width="3" height="7" density="11" />
+  </Item>
+
+
+  <Item identifier="mufflerheadset" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,227,102,16" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="implantmindshield" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.500" impactsoundtag="impact_soft">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="medical" level="40" />
+      <RequiredItem identifier="fpgacircuit" amount="2" />
+    </Fabricate>
+    <Deconstruct time="5">
+      <Item identifier="fpgacircuit" mincondition="1" outcondition="1" />
+    </Deconstruct>
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="136,123,24,35" depth="0.6" origin="0.5,0.5" />
+    <Holdable slots="Any,RightHand,LeftHand" holdangle="30" holdpos="30,-20" msg="ItemMsgPickUpSelect" aimable="false" />
+    <Body width="3" height="7" density="11" />
+  </Item>
+
+
+  <Item identifier="greenauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,945,97,79" origin="0.5,0.5" />
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="helm" level="10" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Body width="45" height="8" density="11" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+  </Item>
+
+
+  <Item identifier="blueauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,866,97,79" origin="0.5,0.5" />
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="helm" level="15" />
+      <RequiredSkill identifier="mechanical" level="10" />
+      <RequiredSkill identifier="electrical" level="10" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Body width="45" height="8" density="11" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+  </Item>
+
+
+  <Item identifier="redauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,787,97,79" origin="0.5,0.5" />
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="helm" level="30" />
+      <RequiredSkill identifier="weapons" level="40" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Body width="45" height="8" density="11" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+  </Item>
+
+
+  <Item identifier="gammaauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,708,97,79" origin="0.5,0.5" />
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="helm" level="35" />
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Body width="45" height="8" density="11" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+  </Item>
+
+
+  <Item identifier="deltaauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,629,97,79" origin="0.5,0.5" />
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="helm" level="35" />
+      <RequiredSkill identifier="weapons" level="50" />
+      <RequiredItem identifier="fpgacircuit" amount="1" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Body width="45" height="8" density="11" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+  </Item>
+
+
+  <Item identifier="gygax" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="442,671,102,16" origin="0.5,0.5" />
+
+  </Item>
+
+
+  <Item identifier="flashnuke" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="937,896,87,128" origin="0.5,0.5" />
+  </Item>
+
+
+  <Item identifier="bsstunbaton" category="Weapon" Tags="smallitem,weapon,stunner,gunsmith,mountableweapon" scale="0.4" cargocontaineridentifier="metalcrate" impactsoundtag="impact_metal_light"
+    RequireAimToUse="True">
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="steel" amount="2" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="fulguriumbatterycell" amount="1" />
+    </Fabricate>
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+      <Item identifier="plastic" />
+      <Item identifier="fulguriumbatterycell" amount="1" />
+    </Deconstruct>
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="199,0,65,66" origin="0.5,0.5" />
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="166,0,25,218" depth="0.55" origin="0.5,0.5" />
+    <Body width="170" height="30" density="20" />
+    <MeleeWeapon slots="Any,RightHand+LeftHand" aimpos="40,20" aimangle="-30" handle1="0,-20" holdangle="0" reload="0.95" range="100" combatPriority="35" msg="ItemMsgPickUpSelect"
+      preferredcontaineditems="mobilebattery">
+      <Attack targetimpulse="5" itemdamage="1">
+        <StatusEffect type="OnUse" target="UseTarget">
+          <Conditional entitytype="eq Character" />
+          <Sound file="Content/Items/Weapons/Smack1.ogg" range="500" />
+          <Sound file="%ModDir%/Sounds/ss_sparks.ogg" range="500" volume="1" />
+        </StatusEffect>
+        <Affliction identifier="blunttrauma" strength="4" />
+        <Affliction identifier="stun" strength="0.3" />
+      </Attack>
+      <!-- changed to use electricshock: normal batteries cause 45 points of electricshock. Due to strength change of -5/s we can expect full stun in three consecutive hits -->
+      <!-- keep weight check in place for now (affect targets with mass < 40, humans, mudraptors, etc.) -->
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <Conditional mass="lt 40" />
+        <Affliction identifier="stun" strength="0.5" />
+        <Affliction identifier="electricshock" strength="60" />
+        <Explosion range="100.0" force="0.1" shockwave="false" flames="false" smoke="false" underwaterbubble="false" camerashake="6.0" />
+        <Sound file="%ModDir%/Sounds/stunbaton.ogg" range="500" volume="0.6" stackable="true" />
+        <ParticleEmitter particle="ElectricShock" DistanceMin="5" DistanceMax="20" ParticleAmount="3" ScaleMin="0.07" ScaleMax="0.1" />
+      </StatusEffect>
+      <!-- changed to use electricshock: fulgurium batteries cause 60 points of electricshock -> full stun in two consecutive hits -->
+      <!-- keep weight check in place for now (affect targets with mass < 60, includes veteran mudraptors) -->
+      <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
+        <Conditional mass="lt 60" />
+        <Affliction identifier="stun" strength="0.5" />
+        <Affliction identifier="electricshock" strength="100" />
+        <Explosion range="100.0" force="0.5" shockwave="false" flames="false" smoke="true" underwaterbubble="false" camerashake="6.0" />
+        <Sound file="%ModDir%/Sounds/stunbaton.ogg" range="500" volume="0.6" stackable="true" />
+        <ParticleEmitter particle="ElectricShock" DistanceMin="10" DistanceMax="25" ParticleAmount="5" ScaleMin="0.1" ScaleMax="0.12" />
+      </StatusEffect>
+    </MeleeWeapon>
+    <aitarget sightrange="500" soundrange="500" fadeouttime="1" />
+    <Quality>
+      <QualityStat stattype="StrikingPowerMultiplier" value="0.25" />
+    </Quality>
+  </Item>
+
+
+  <Item name="Blueshield Uniform" identifier="blueshieldoutfit" category="Equipment" tags="smallitem,clothing" fireproof="false" cargocontaineridentifier="metalcrate" description="" scale="0.5"
+    impactsoundtag="impact_soft">
+    <PreferredContainer primary="crewcab" />
+    <Deconstruct time="10">
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+    <InventoryIcon name="Blueshield Uniform 2 Icon" texture="%ModDir%/Sprites/blueshield_outfit.png" sourcerect="448,192,64,64" origin="0.5,0.5" />
+    <Sprite name="Blueshield Uniform 2" texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="375,225,124,61" depth="0.6" origin="0.5,0.5" />
+    <Body width="100" height="50" density="15" friction="0.8" restitution="0.01" />
+    <Wearable slots="Any,InnerClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Blueshield Uniform 2 Torso" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Right Hand" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="RightHand" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Left Hand" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Right Lower Arm" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="RightArm" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Left Lower Arm" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Right Upper Arm" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Left Upper Arm" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Waist" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="Waist" hidelimb="true" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Right Thigh" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Left Thigh" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Right Leg" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Left Leg" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Left Shoe" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="LeftFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <sprite name="Blueshield Uniform 2 Right Shoe" texture="%ModDir%/Sprites/blueshield_outfit.png" limb="RightFoot" hidelimb="true" inherittexturescale="true" inheritorigin="true"
+        inheritsourcerect="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="lacerations" damagemultiplier="0.95" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bitewounds, blunttrauma" damagemultiplier="0.9" />
+    </Wearable>
+  </Item>
+
+
+</Items>

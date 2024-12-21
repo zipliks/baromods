@@ -1,21 +1,254 @@
 <?xml version="1.0" encoding="utf-8"?>
 <infotexts language="English" nowhitespace="false" translatedname="English">
-  <jobname.blueshield>Blueshield</jobname.blueshield>
+ 
+  <jobname.blueshield>Blueshield Officer</jobname.blueshield>
   <jobdescription.blueshield>Dedicated to safeguarding ship captains and crew with unwavering commitment and expertise. A trusted guardian of maritime security.</jobdescription.blueshield>
+ 
   <!-- Items -->
-  <entityname.stunstick>Stunstick</entityname.stunstick>
+
+  <entityname.bsstunbaton>Trusted Stunbaton</entityname.bsstunbaton>
+  <entitydescription.bsstunbaton>A trusty tool for a trustworthy officer</entitydescription.bsstunbaton>
+
+  <entityname.europanlaw>Europan Law</entityname.europanlaw>
+  <entitydescription.europanlaw>A book filled with cryptic symbols. Heavier than it looks</entitydescription.europanlaw>
+
+  <entityname.dogmask>Dog Mask</entityname.dogmask>
+  <entitydescription.dogmask>You shouldn't do it. Really.</entitydescription.dogmask>
+
+  <entityname.crewtracker>Crew Tracker</entityname.crewtracker>
+  <entitydescription.crewtracker>Shows every crewmate's name, location, health and appoximate direction to them (regardless of distance or radio channel)</entitydescription.crewtracker>
+
+  <entityname.bsimplanter>Implanter</entityname.bsimplanter>
+  <entitydescription.bsimplanter>A modified syringe, capable of inserting some special implants</entitydescription.bsimplanter>
+
+  <entityname.implantdeathalarm>Death Alarm Implant</entityname.implantdeathalarm>
+  <entitydescription.implantdeathalarm>Whenever the person with this implant injected falls below 0 health or dies, every crewmate receives a notification (regardless of distance and radio channel) including current coordinates and hull name. </entitydescription.implantdeathalarm>
+
+  <entityname.implantchemical>Chemical Implant</entityname.implantchemical>
+  <entitydescription.implantchemical>Upon subject death, explodes violently in a cloud of acid, damaging everyone around. Death is inevitable, so make it count.</entitydescription.implantchemical>
+
+  <entityname.rescuehook>Rescue Hook</entityname.rescuehook>
+  <entitydescription.rescuehook>Fires a harmless hook, quickly grabbing the target and then quickly retracting, allowing the wielder to rescue crewmates from danger with relative ease. Reusable</entitydescription.rescuehook>
+
+  <entityname.sleepgrenade>Sleep Grenade</entityname.sleepgrenade>
+  <entitydescription.sleepgrenade>Slowly releases a cloud of sedative chemical in the air, slowing and then putting everyone around to sleep, humans and monsters alike. Damaged with water</entitydescription.sleepgrenade>
+
+  <entityname.boilinggrenade>Boiling Grenade</entityname.boilinggrenade>
+  <entitydescription.boilinggrenade>When thrown in water, heats the surroudings so hard the water around boils and everyone nearby it drawn towards the grenade. Can't be put off manually, but it disables itself when not in water. Even then, it's so hot it can't be picked up even in diving suits</entitydescription.boilinggrenade>
+
+  <entityname.violentgrenade>Violent Grenade</entityname.violentgrenade>
+  <entitydescription.violentgrenade>When thrown and colliding with a wall or creature, explodes extremely violently and brighly, but doesn't damage the surroudings</entitydescription.violentgrenade>
+
+
+  <entityname.breathingtube>Breathing Tube</entityname.breathingtube>
+  <entitydescription.breathingtube>When implanted, prevents one from suffocating when below 0 health, if not in water</entitydescription.breathingtube>
+
+  <entityname.sighingtube>Sighing Tube</entityname.sighingtube>
+  <entitydescription.sighingtube>Does exactly it</entitydescription.sighingtube>
+
+  <entityname.lsd>LSD</entityname.lsd>
+  <entitydescription.lsd>Yooooo this shit ain't shit</entitydescription.lsd>
+
+  <entityname.unica>Mateba Model 6 Unica</entityname.unica>
+  <entitydescription.unica>7-round rapid fire revolver for those times when you need real POWER. Ammo cannot be crafted, you should check your local military shops or wrecks. Crafted empty</entitydescription.unica>
+
+  <entityname.multirevolver>Multimode Energy Revolver</entityname.multirevolver>
+  <multirevolver.ButtonLabelTaserMode>TASER</multirevolver.ButtonLabelTaserMode>
+  <multirevolver.ButtonLabelDisablerMode>DISABLER</multirevolver.ButtonLabelDisablerMode>
+  <multirevolver.ButtonLabelLethalMode>LETHAL</multirevolver.ButtonLabelLethalMode>
+
+
+  <entityname.implantmindshield>Mindshield Implant</entityname.implantmindshield>
+  <entitydescription.implantmindshield>When injected, provides full immunity to psychosis</entitydescription.implantmindshield>
+
+  <entityname.implantweldingshield>Welding Implant</entityname.implantweldingshield>
+  <entitydescription.implantweldingshield>When worn, provides full immunity to blindness</entitydescription.implantweldingshield>
+
+  <entityname.mufflerheadset>Muffler Headset</entityname.mufflerheadset>
+  <entitydescription.mufflerheadset>When worn, provides full immunity to sensory overload</entitydescription.mufflerheadset>
+
+  <entityname.floppaportal>Interdimensional Receiver</entityname.floppaportal>
+  <entitydescription.floppaportal>Reconsider</entitydescription.floppaportal>
+
+  
+
+  <entityname.commsterminal>Comms Terminal</entityname.commsterminal>
+  <entitydescription.commsterminal>Attach to a wall, then insert the key. Unlimited range, powered with internal battery</entitydescription.commsterminal>
+
+  <entityname.greenauthkey>Green Auth Key</entityname.greenauthkey>
+  <entitydescription.greenauthkey>Green plastic card. When inserted in the comms terminal, boosts submarine movement speed, fabrication speed and deconstruction speed</entitydescription.greenauthkey>
+
+  <entityname.blueauthkey>Blue Auth Key</entityname.blueauthkey>
+  <entitydescription.blueauthkey>Blue plastic card. When inserted in the comms terminal, boosts repair, welding and crew movement speed</entitydescription.blueauthkey>
+
+  <entityname.redauthkey>Red Auth Key</entityname.redauthkey>
+  <entitydescription.redauthkey>Red plastic card. When inserted in the comms terminal, boosts crew damage resistance and damag</entitydescription.redauthkey>
+
+  <entityname.gammaauthkey>Gamma Auth Key</entityname.gammaauthkey>
+  <entitydescription.gammaauthkey>Yellow plastic card. When inserted in the comms terminal, allows usage of the Gygax mech</entitydescription.gammaauthkey>
+
+  <entityname.deltaauthkey>Delta Auth Key</entityname.deltaauthkey>
+  <entitydescription.deltaauthkey>Purple plastic card. When inserted in the comms terminal, allows usage of the flash nuke</entitydescription.deltaauthkey>
+
+  <entityname.gygax>Gygax</entityname.gygax>
+  <entitydescription.gygax>A powerful military mech, capable of withstanding extreme stress and moving with great speeds, but hard to make and maintain</entitydescription.gygax>
+
+  <entityname.flashnuke>Flash Nuke</entityname.flashnuke>
+  <entitydescription.flashnuke>An extremely powerful explosive pacification device. Blinds, stuns and deafens in a huge radius. Can only be used during code delta</entitydescription.flashnuke>
+
+
   <!-- Talent Trees -->
-  <talenttree.personaljesus>Personal Jesus</talenttree.personaljesus>
-  <talenttree.crewhope>Crew Hope</talenttree.crewhope>
+
   <talenttree.onemanapocalypse>One Man Apocalypse</talenttree.onemanapocalypse>
+  <talenttree.yourshield>Your Shield</talenttree.yourshield>
+  <talenttree.accordingtoplan>According to Plan</talenttree.accordingtoplan>
+
   <!-- Talents -->
-  <talentname.codegamma>Code Gamma</talentname.codegamma>
-  <talentdescription.codegamma>Deal [amount]% more damage with ‖color:gui.orange‖Revolvers‖end‖ and ‖color:gui.orange‖Handcannons‖end‖ to foes.</talentdescription.codegamma>
-  <talentname.nobodydies>Nobody Dies</talentname.nobodydies>
-  <talentdescription.nobodydies>Medical items you apply are +[amount]% more potent.</talentdescription.nobodydies>
-  <talentname.apocalypsehorseman>The Horseman of the Apocalypse</talentname.apocalypsehorseman>
-  <talentdescription.apocalypsehorseman>Inflict [amount]% more damage for every nearby enemy. Up to [maxamount]%.</talentdescription.apocalypsehorseman>
-  <talentname.shocktherapy>Shock Therapy</talentname.shocktherapy>
-  <talentdescription.shocktherapy>Inflict [amount]% more shock.</talentdescription.shocktherapy>
-  <talentname.brickwall>Brickwall</talentname.brickwall>
+
+  <talentname.glorytocoalition>Glory to Coalition</talentname.glorytocoalition>
+  <talentdescription.glorytocoalition>Gain a one-time reward of [xpamount] experience and [bonus] [skillmedical], [skillhelm] and [skillweapons] for applying [requirement] medical items to your crewmates</talentdescription.glorytocoalition>
+  <talentdescription.glorytocoalition2>Coalition faction shops offer [amount]% lower prices</talentdescription.glorytocoalition2>
+
+  <talentname.stateyourlaws>State Your Laws</talentname.stateyourlaws>
+  <talentdescription.stateyourlawsextrared>Causes irreparable damage to your social status</talentdescription.stateyourlawsextrared>
+  <talentdescription.stateyourlawsextra>[text]</talentdescription.stateyourlawsextra>
+
+  <talentname.totalsurveillance>Total Surveillance</talentname.totalsurveillance>
+  <talentdescription.totalsurveillance>Track your crewmates down with the help of a crew tracker PDA</talentdescription.totalsurveillance>
+
+  <talentname.dontdaredying>Don't Dare Dying</talentname.dontdaredying>
+  <talentdescription.dontdaredying>Whenever the person with death alarm implant injected falls below 0 health or dies, every crewmate receives a notification (regardless of distance and radio channel) including current coordinates and room name</talentdescription.dontdaredying>
+  <talentdescription.dontdaredying2>When a person with chemical implant injected dies, they explode in a cloud of strong acid</talentdescription.dontdaredying2>
+
+  <talentname.medicaltools>Medical Tools</talentname.medicaltools>
+  <talentdescription.medicaltools>CPR you apply is [amount]% more powerful</talentdescription.medicaltools>
+
+  <talentname.testinggrounds>Testing Grounds</talentname.testinggrounds>
+
+  <talentname.learningtoswitchhands>How to Switch Hands?</talentname.learningtoswitchhands>
+  <talentdescription.learningtoswitchhandsrevolver>Withing [seconds] seconds after attacking with a pistol or revolver, your next attack with a stunning weapon is [damage]% more powerful</talentdescription.learningtoswitchhandsrevolver>
+  <talentdescription.learningtoswitchhandsstun>Withing [seconds] seconds after attacking with a stunning weapon, your next attack with a pistol or a revolver is [damage]% more powerful</talentdescription.learningtoswitchhandsstun>
+
+  <talentname.breathingtube>Breathing Tube, Sighing Tube...</talentname.breathingtube>
+  <talentdescription.breathingtube>Using a breathing tube implant allows you to breathe when below 0 health if you are not underwater</talentdescription.breathingtube>
+
+  <talentname.bsselfcare>Self-care</talentname.bsselfcare>
+  <talentdescription.bsselfcare>Medical items applied to you are [amount]% more powerful</talentdescription.bsselfcare>
+
+  <talentname.officerdrunkshield>Officer Drunkshield</talentname.officerdrunkshield>
+  <talentdescription.officerdrunkshield>You gain [amount]% resistance to damage when drunk</talentdescription.officerdrunkshield>
+
+  <talentname.adrenalinepump>Adrenaline Pump</talentname.adrenalinepump>
+  <talentdescription.adrenalinepump>Whenever you fall below 0 health, you will remain fully conscious for [time] seconds, but you are slowed by [slowdown]%</talentdescription.adrenalinepump>
+
+  <talentname.sleepcarp>Way of the Sleeping Carp</talentname.sleepcarp>
+  <talentdescription.sleepcarp>When you are below 0 health, gain [amount]% damage resistance</talentdescription.sleepcarp>
+
+  <talentname.laststand>The Last Stand</talentname.laststand>
+  <talentdescription.laststand>Inflict [amount] more damage with for every nearby enemy, if you are alone. Up to [maxamount]%</talentdescription.laststand>
+  <talentdescription.unicared>Unica ammo cannot be fabricated - only found or bought at military outposts</talentdescription.unicared>
+  <talentdescription.unica>[text]</talentdescription.unica>
+
+  <talentname.powbzzt>POW BZZZZT</talentname.powbzzt>
+  <talentdescription.powbzzt>The multirevolver has 3 modes - short stun, progressive slowdown and lethal. Lethal mode is only available during active red, gamma or delta codes. Charged with battery cells</talentdescription.powbzzt>
+
+  <talentname.mindblock>Mindblock</talentname.mindblock>
+  <talentdescription.mindblock>Mindshield implant makes a person permanently immune to psychosis</talentdescription.mindblock>
+
+  <talentname.whysodark>Why So Dark?</talentname.whysodark>
+  <talentdescription.whysodark>Use the headset to protect yourself from sensory overload, and welding implant to protect yourself from blindness - two effects of the stun grenade</talentdescription.whysodark>
+
+  <talentname.trackerson>Trackers On!</talentname.trackerson>
+  <talentdescription.trackerson>Every crewmate with a death alarm implant increases your speed by [speed]% and vitality by [vitality]%. Every crewmate without a death alarm implant gives you psychosis</talentdescription.trackerson>
+
+  <talentname.captainyouthere>Captain, You There?</talentname.captainyouthere>
+  <talentdescription.captainyouthere>You move [speed]% faster for every unconscious crewmember. Up to [speedmax]%.</talentdescription.captainyouthere>
+
+  <talentname.warcrimes>Warcrimes</talentname.warcrimes>
+  <talentdescription.warcrimes>What horrors will it bring us?</talentdescription.warcrimes>
+
+  <talentname.calltheshuttle>Call the Shuttle!</talentname.calltheshuttle>
+  <talentdescription.calltheshuttle>If no crewmember has died during mission, gain [moneybonus] marks and [xpbonus] experience</talentdescription.calltheshuttle>
+
+
+  <talentdescription.codeextrared>Only one code can be active at a time!</talentdescription.codeextrared>
+  <talentdescription.codeextra>[text]</talentdescription.codeextra>
+
+  <talentname.codegreen>Code 'Green'</talentname.codegreen>
+  <talentdescription.codegreen>Using the green auth key boosts submarine movement speed, fabrication speed and deconstruction speed by [amount]%</talentdescription.codegreen>
+
+  <talentname.codeblue>Code 'Blue'</talentname.codeblue>
+  <talentdescription.codeblue>Using the blue auth key boosts repair, welding and movement speed by [amount]%</talentdescription.codeblue>
+
+  <talentname.codered>Code 'Red'</talentname.codered>
+  <talentdescription.codered>Using the red auth key boosts crew damage resistance and damage by [amount]%</talentdescription.codered>
+
+  <talentname.codegamma>Code 'Gamma'</talentname.codegamma>
+  <talentdescription.codegamma>Using the omega auth key allows using the Gygax mech</talentdescription.codegamma>
+
+  <talentname.codedelta>Code 'Delta'</talentname.codedelta>
+  <talentdescription.codedelta>Using the delta auth key allows using the flash nuke</talentdescription.codedelta>
+
+ <!-- Afflictions -->
+
+  <afflictionname.codegreen>Code 'Green'</afflictionname.codegreen>
+  <afflictiondescription.codegreen>Submarine movement speed and fabrication devices speed increased</afflictiondescription.codegreen>
+
+  <afflictionname.codeblue>Code 'Blue'</afflictionname.codeblue>
+  <afflictiondescription.codeblue>Repair and movement speed increased</afflictiondescription.codeblue>
+
+  <afflictionname.codered>Code 'Red'</afflictionname.codered>
+  <afflictiondescription.codered>You deal more damage and take less damage</afflictiondescription.codered>
+
+  <afflictionname.codegamma>Code 'Gamma'</afflictionname.codegamma>
+  <afflictiondescription.codegamma>Gygax mech : active</afflictiondescription.codegamma>
+
+  <afflictionname.codedelta>Code 'Delta'</afflictionname.codedelta>
+  <afflictiondescription.codedelta>Flash nuke : active</afflictiondescription.codedelta>
+
+  <afflictionname.stunattack>Stunning Attack</afflictionname.stunattack>
+  <afflictiondescription.stunattack>You made an attack with a stunning weapon, now shoot it!</afflictiondescription.stunattack>
+
+  <afflictionname.pistolattack>Pistol Attack</afflictionname.pistolattack>
+  <afflictiondescription.pistolattack>You shot it with a pistol, now stun it!</afflictiondescription.pistolattack>
+
+  <afflictionname.adrenalinepump>Adrenaline Pump</afflictionname.adrenalinepump>
+  <afflictiondescription.adrenalinepump>Your body still moves, even though it shouldn't</afflictiondescription.adrenalinepump>
+
+  <afflictionname.sleepcarp>Way of the Sleeping Carp</afflictionname.sleepcarp>
+  <afflictiondescription.sleepcarp>You hold for your life, surviving attacks that should've killed you</afflictiondescription.sleepcarp>
+
+  <afflictionname.captainyouthere>Rescue Mission</afflictionname.captainyouthere>
+  <afflictiondescription.captainyouthere>Your crewmate is in trouble, you must hurry</afflictiondescription.captainyouthere>
+
+  <afflictionname.lsd>LSD</afflictionname.lsd>
+  <afflictiondescription.lsd>Oh wow</afflictiondescription.lsd>
+
+  <afflictionname.deathalarm>Death alarm</afflictionname.deathalarm>
+
+  <afflictionname.mindshield>Mindshielded</afflictionname.mindshield>
+
+  <afflictionname.weldingshield>Eyeshielded</afflictionname.weldingshield>
+  
+  <afflictionname.chemicalimplant>Chemical implant</afflictionname.chemicalimplant>
+  
+  <afflictionname.soultaint>Soul tainted</afflictionname.soultaint>
+  <afflictiondescription.soultaint>You have been warned</afflictiondescription.soultaint>
+
+  <afflictionname.lawenforcement>Law enforcement</afflictionname.lawenforcement>
+  <afflictiondescription.lawenforcement>The Justice makes you take 20% extra damage</afflictiondescription.lawenforcement>
+
+  <afflictionname.breathingtube>Breathing tube</afflictionname.breathingtube>
+
+  <afflictionname.adrenalinepump>Adrenaline Pump</afflictionname.adrenalinepump>
+  <afflictiondescription.adrenalinepump>Time is running out</afflictiondescription.adrenalinepump>
+
+  <afflictionname.disablerslow>Stamina drained</afflictionname.disablerslow>
+  <afflictiondescription.disablerslow>Muscles are numb and aching</afflictiondescription.disablerslow>
+
+  <afflictionname.floppabuff>Divine Encouragement</afflictionname.floppabuff>
+
+  <afflictionname.gygaxoverload>Gygax overload</afflictionname.gygaxoverload>
+  <afflictiondescription.gygaxoverload>Eat my dust!</afflictiondescription.gygaxoverload>
+
 </infotexts>

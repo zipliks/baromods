@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Blueshield Job" modversion="1.0.1" corepackage="False" gameversion="1.0.21.0" >
-	<Item file="%moddir%/XML/item.xml"/>
-	<Afflictions file="%moddir%/XML/afflictions.xml"/>
-	<Jobs file="%moddir%/XML/jobs.xml"/>
-	<Text file="%moddir%/Language/English.xml"/>
-	<Text file="%moddir%/Language/Russian.xml"/>
+<contentpackage name="Blueshield Job" modversion="1.0.1" corepackage="False" gameversion="1.0.21.0">
+	<Item file="%moddir%/XML/items.xml" />
+	<Afflictions file="%moddir%/XML/afflictions.xml" />
+	<Jobs file="%moddir%/XML/jobs.xml" />
 	<TalentTrees file="%moddir%/XML/talenttrees.xml" />
 	<Talents file="%moddir%/XML/talents.xml" />
-	<Talents file="%moddir%/XML/talents2.xml" />
+ 	<Character file="%ModDir%/Characters/Floppa/floppa.xml" />
+	<Text file="%moddir%/Language/english.xml" />
 </contentpackage>

@@ -52,12 +52,11 @@
   <entityname.unica>Mateba Model 6 Unica</entityname.unica>
   <entitydescription.unica>7-round rapid fire revolver for those times when you need real POWER. Ammo cannot be crafted, you should check your local military shops or wrecks. Crafted empty</entitydescription.unica>
 
-  <entityname.multirevolver>Multimode Revolver</entityname.multirevolver>
-  <entitydescription.multirevolver>CURRENT MODE : TASER</entitydescription.multirevolver>
-  <entityname.multirevolverdisabler>Multimode Revolver</entityname.multirevolverdisabler>
-  <entitydescription.multirevolverdisabler>CURRENT MODE : DISABLER</entitydescription.multirevolverdisabler>
-  <entityname.multirevolverlethal>Multimode Revolver</entityname.multirevolverlethal>
-  <entitydescription.multirevolverlethal>CURRENT MODE : LETHAL (requires code red or higher to fire)</entitydescription.multirevolverlethal>
+  <entityname.multirevolver>Multimode Energy Revolver</entityname.multirevolver>
+  <multirevolver.ButtonLabelTaserMode>TASER</multirevolver.ButtonLabelTaserMode>
+  <multirevolver.ButtonLabelDisablerMode>DISABLER</multirevolver.ButtonLabelDisablerMode>
+  <multirevolver.ButtonLabelLethalMode>LETHAL</multirevolver.ButtonLabelLethalMode>
+
 
   <entityname.implantmindshield>Mindshield Implant</entityname.implantmindshield>
   <entitydescription.implantmindshield>When injected, provides full immunity to psychosis</entitydescription.implantmindshield>

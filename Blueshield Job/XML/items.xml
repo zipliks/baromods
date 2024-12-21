@@ -17,27 +17,27 @@
     <Body width="10" height="45" density="11" />
     <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="-2,10" holdangle="40" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
-        <RequiredItem identifier="implantdeathalarm" type="Contained"/>
+        <RequiredItem identifier="implantdeathalarm" type="Contained" />
         <Affliction identifier="deathalarm" amount="2" />
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
-        <RequiredItem identifier="implantchemical" type="Contained"/>
+        <RequiredItem identifier="implantchemical" type="Contained" />
         <Affliction identifier="chemicalimplant" amount="2" />
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
-        <RequiredItem identifier="implantmindshield" type="Contained"/>
+        <RequiredItem identifier="implantmindshield" type="Contained" />
         <Affliction identifier="mindshield" amount="2" />
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
-        <RequiredItem identifier="implantweldingshield" type="Contained"/>
+        <RequiredItem identifier="implantweldingshield" type="Contained" />
         <Affliction identifier="weldingshield" amount="2" />
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
       <StatusEffect tags="medical" type="OnSuccess" target="UseTarget" disabledeltatime="true">
-        <RequiredItem identifier="breathingtube" type="Contained"/>
+        <RequiredItem identifier="breathingtube" type="Contained" />
         <Affliction identifier="breathingtube" amount="2" />
         <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
       </StatusEffect>
@@ -134,11 +134,12 @@
     <Holdable slots="Any,RightHand,LeftHand" holdangle="30" holdpos="30,-20" msg="ItemMsgPickUpSelect" aimable="false" />
     <Body width="40" height="40" density="11" />
     <Wearable slots="OuterClothes" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select">
-      <sprite name="Dog Mask Wearable" texture="%moddir%/Sprites/spritesheet.png" sourcerect="347,228,168,200" limb="Head" scale="0.2" origin="0.4,0.5" hidelimb="true" alphaclipotherwearables="true"/>
+      <sprite name="Dog Mask Wearable" texture="%moddir%/Sprites/spritesheet.png" sourcerect="347,228,168,200" limb="Head" scale="0.2" origin="0.4,0.5" hidelimb="true" alphaclipotherwearables="true" />
       <StatusEffect type="OnWearing" target="Character" ObstructVisionAmount="0.1" setvalue="true" disabledeltatime="true" />
       <StatusEffect type="OnWearing" target="Character">
         <Affliction identifier="soultaint" amount="1.0" />
       </StatusEffect>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="burn" damagemultiplier="2" />
     </Wearable>
   </Item>
 
@@ -191,26 +192,85 @@
   </Item>
 
 
-  <Item identifier="multirevolver" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
-    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,227,102,16" origin="0.5,0.5" />
-  </Item>
-
-
-  <Item identifier="multirevolverdisabler" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
-    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,227,102,16" origin="0.5,0.5" />
-  </Item>
-
-
-  <Item identifier="multirevolverlethal" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
-    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="0,537,242,123" origin="0.5,0.5" />
-  </Item>
-
-
-  <Item name="" identifier="multirevolverstun_proj" category="Weapon" maxstacksize="1" tags="" Scale="1" impactsoundtag="impact_metal_light">
-    <Sprite texture="%ModDir%/Sprites/spritesheet.png" sourcerect="279,543,13,57" depth="0.55" />
+  <Item identifier="multirevolver" category="Equipment" Tags="smallitem,pistolitem,loadable" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.2" health="500"
+    impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="0,538,239,123" origin="0.5,0.5" />
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="0,538,239,123" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="70" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="60" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="3" />
+      <RequiredItem identifier="physicorium" />
+    </Fabricate>
+    <Deconstruct time="30">
+      <Item identifier="titaniumaluminiumalloy" amount="2" />
+      <Item identifier="physicorium" />
+    </Deconstruct>
     <Body width="70" height="15" density="11" />
+    <CustomInterface canbeselected="false" allowuioverlap="false" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.14,0.25" relativeOffset="0,0" anchor="TopRight" style="ItemUI" hidedragicons="true" draggable="true" />
+      <Button text="multirevolver.ButtonLabelTaserMode">
+        <StatusEffect type="OnUse" target="Contained">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" delay="0.05">
+          <SpawnItem identifiers="multirevolverstun_proj" spawnposition="ThisInventory" />
+        </StatusEffect>
+      </Button>
+      <Button text="multirevolver.ButtonLabelDisablerMode">
+        <StatusEffect type="OnUse" target="Contained">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" delay="0.05">
+          <SpawnItem identifiers="multirevolverdisabler_proj" spawnposition="ThisInventory" />
+        </StatusEffect>
+      </Button>
+      <Button text="multirevolver.ButtonLabelLethalMode">
+        <StatusEffect type="OnUse" target="Contained" comparison="or">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="or" delay="0.05">
+          <Conditional codered="gte 1" />
+          <Conditional codedelta="gte 1" />
+          <Conditional codegamma="gte 1" />
+          <SpawnItem identifiers="multirevolverlethal_proj" spawnposition="ThisInventory" />
+        </StatusEffect>
+      </Button>
+    </CustomInterface>
+    <Body width="106" height="49" density="30" />
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" aimpos="90,10" handle1="-50,-4" handle2="-50,-15" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnUse" target="This" condition="-100" interval="1" />
+    </Holdable>
+    <RangedWeapon reload="1" barrelpos="40,6" spread="0" unskilledspread="8" combatPriority="90" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="%ModDir%/Sounds/unica.ogg" type="OnUse" range="3000" />
+      <RequiredItems items="multirevolver_proj" type="Contained" msg="ItemMsgAmmoRequired" />
+      <RequiredSkill identifier="weapons" level="60" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" hideitems="true" drawinventory="false" ShowConditionInContainedStateIndicator="true">
+      <Containable items="multirevolver_proj" hide="true" />
+    </ItemContainer>
+    <aitarget sightrange="2000" soundrange="5000" fadeouttime="5" />
+    <Quality>
+      <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+    </Quality>
+    <SkillRequirementHint identifier="weapons" level="60" />
+  </Item>
+
+
+  <Item name="Multirevolver taser" identifier="multirevolverstun_proj" category="Weapons" maxstacksize="4" tags="smallitem,revolverammo,stunner,handheldammo,pistolammoitem,multirevolver_proj"
+    Scale="1"
+    impactsoundtag="impact_metal_light">
+    <Sprite texture="%ModDir%/Sprites/spritesheet.png" sourcerect="279,543,13,57" depth="0.55" />
+    <Body width="15" height="70" density="11" />
     <Pickable slots="Any" msg="ItemMsgPickUpSelect" />
+    <LightComponent LightColor="200,200,0,200" castshadows="false" IsOn="true" range="5">
+      <LightTexture texture="Content/Lights/light.png" sourcerect="0,0,1024,1024" depth="0.01" origin="0.5,0.5" alpha="1.0" />
+    </LightComponent>
     <Projectile characterusable="false" launchimpulse="15.0" sticktocharacters="true">
+      <StatusEffect type="OnContained" target="This" interval="2">
+        <SpawnItem identifiers="multirevolverstun_proj" spawnposition="SameInventory" />
+      </StatusEffect>
       <Attack structuredamage="0" targetforce="2">
         <Affliction identifier="stun" strength="1" />
       </Attack>
@@ -223,9 +283,11 @@
         <Conditional entitytype="eq Character" />
         <Affliction identifier="electricshock" strength="35" />
       </StatusEffect>
-      <StatusEffect type="OnImpact" target="This" delay="0.5">
-        <Sound file="%ModDir%/Sounds/multimode_tase.ogg" type="OnUse" range="500" selectionmode="Random" />
+      <StatusEffect type="OnImpact" target="This">
+        <Sound file="%ModDir%/Sounds/multimode_tase.ogg" type="OnUse" range="1000" selectionmode="Random" />
         <ParticleEmitter particle="ElectricShock" DistanceMin="5" DistanceMax="20" ParticleAmount="3" ScaleMin="0.07" ScaleMax="0.1" />
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="This" delay="1">
         <Remove />
       </StatusEffect>
       <StatusEffect type="OnImpact" target="UseTarget">
@@ -237,18 +299,24 @@
   </Item>
 
 
-  <Item name="" identifier="multirevolverdisabler_proj" category="Weapon" scale="0.25" hideinmenus="true">
-    <Sprite texture="%ModDir%/Sprites/spritesheet.png" sourcerect="180,974,350,50" depth="0.55" />
-    <Body width="50" height="2" density="20" />
-    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,0" handle2="10,0" aimable="false" />
-    <Projectile characterusable="false" hitscan="false" launchimpulse="20" removeonhit="true" damagedoors="false" penetration="0.5">
+  <Item name="Multirevolver disabler" identifier="multirevolverdisabler_proj" maxstacksize="4" category="Weapons" tags="smallitem,revolverammo,handheldammo,pistolammoitem,multirevolver_proj"
+    scale="0.25" hideinmenus="true">
+    <Sprite texture="%ModDir%/Sprites/spritesheet.png" sourcerect="450,974,370,50" depth="0.55" />
+    <Body width="250" height="25" density="200" />
+    <LightComponent LightColor="0,50,200,200" castshadows="false" IsOn="true" range="5">
+      <LightTexture texture="Content/Lights/light.png" sourcerect="0,0,1024,1024" depth="0.01" origin="0.5,0.5" alpha="1.0" />
+    </LightComponent>
+    <Projectile characterusable="false" hitscan="false" launchimpulse="100" removeonhit="true" damagedoors="false" penetration="0.5">
+      <StatusEffect type="OnContained" target="This" interval="2">
+        <SpawnItem identifiers="multirevolverdisabler_proj" spawnposition="SameInventory" />
+      </StatusEffect>
       <ParticleEmitter particle="FlareBubbles" emitacrossrayinterval="50" />
       <Attack structuredamage="0" targetforce="5" itemdamage="0" severlimbsprobability="0" penetration="0.5">
       </Attack>
       <StatusEffect type="OnImpact" target="UseTarget">
-        <ParticleEmitter particle="muzzleflashpulselaser" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" />
-        <Explosion range="150.0" ballastfloradamage="50" structuredamage="10" itemdamage="250" force="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false"
-          flashcolor="255,0,0,255">
+        <ParticleEmitter particle="muzzleflashpulselaser" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" colormultiplier="0,0,200,200" />
+        <Explosion range="150.0" ballastfloradamage="0" structuredamage="0" itemdamage="0" force="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false"
+          flashcolor="50,100,200,200">
           <Affliction identifier="disablerslow" strength="20" />
         </Explosion>
       </StatusEffect>
@@ -256,15 +324,46 @@
         <Conditional entitytype="eq Structure" />
         <Conditional hastag="eq door" />
       </StatusEffect>
-      <StatusEffect type="OnNotContained" target="This">
+      <StatusEffect type="OnNotContained" target="This" delay="1">
         <Remove />
       </StatusEffect>
     </Projectile>
   </Item>
 
+  <Item name="Multirevolver lethal" identifier="multirevolverlethal_proj" maxstacksize="4" category="Weapons" tags="smallitem,revolverammo,handheldammo,pistolammoitem,multirevolver_proj" scale="0.25"
+    hideinmenus="true">
+    <Sprite texture="%ModDir%/Sprites/spritesheet.png" sourcerect="450,924,370,50" depth="0.55" />
+    <Body width="250" height="25" density="200" />
+    <LightComponent LightColor="200,0,0,200" castshadows="false" IsOn="true" range="5">
+      <LightTexture texture="Content/Lights/light.png" sourcerect="0,0,1024,1024" depth="0.5" origin="0.5,0.5" alpha="1.0" />
+    </LightComponent>
+    <Projectile characterusable="false" hitscan="false" launchimpulse="100" removeonhit="true" damagedoors="false" penetration="0.5">
+      <StatusEffect type="OnContained" target="This" interval="2">
+        <SpawnItem identifiers="multirevolverlethal_proj" spawnposition="SameInventory" />
+      </StatusEffect>
+      <ParticleEmitter particle="FlareBubbles" emitacrossrayinterval="50" />
+      <Attack structuredamage="0" targetforce="5" itemdamage="0" severlimbsprobability="0" penetration="0.5">
+      </Attack>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <ParticleEmitter particle="muzzleflashpulselaser" anglemin="0" anglemax="360" particleamount="10" velocitymin="0" scalemin="0.5" scalemax="0.8" />
+        <Explosion range="150.0" ballastfloradamage="50" structuredamage="10" itemdamage="250" force="10.0" flames="false" smoke="false" sparks="false" underwaterbubble="false"
+          flashcolor="255,0,0,255">
+          <Affliction identifier="burn" strength="50" />
+        </Explosion>
+      </StatusEffect>
+      <StatusEffect type="OnImpact" target="UseTarget">
+        <Conditional entitytype="eq Structure" />
+        <Conditional hastag="eq door" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" delay="1">
+        <Remove />
+      </StatusEffect>
+    </Projectile>
+  </Item>
 
   <Item identifier="unica" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.15" impactsoundtag="impact_soft">
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,227,280,171" origin="0.5,0.5" />
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="200,70,65,65" origin="0.5,0.5" />
     <Price baseprice="600" sold="false">
       <Price storeidentifier="merchantoutpost" multiplier="1.5" />
       <Price storeidentifier="merchantcity" multiplier="1.25" />
@@ -306,7 +405,7 @@
   </Item>
 
 
-  <Item identifier="unicaround" category="Equipment" Tags="smallitem" maxstacksize="7" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+  <Item name="unicaround" identifier="unicaround" category="Equipment" Tags="smallitem" maxstacksize="7" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="388,178,50,20" origin="0.5,0.5" />
     <PreferredContainer secondary="wreckarmcab,abandonedarmcab,piratearmcab" minamount="4" maxamount="8" spawnprobability="0.3" />
     <PreferredContainer primary="secarmcab" />
@@ -355,8 +454,85 @@
   </Item>
 
 
-  <Item identifier="commsterminal" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
-    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,677,166,154" origin="0.5,0.5" />
+  <Item identifier="commsterminal" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.500" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,677,166,154" depth="0.7" origin="0.5,0.5" />
+    <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="1,677,166,154" origin="0.5,0.5" />
+    <Deconstruct time="15">
+      <Item identifier="steel" amount="2" />
+      <Item identifier="fpgacircuit" amount="2" />
+      <Item identifier="plastic" amount="1" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+      <RequiredSkill identifier="mechanical" level="20" />
+      <RequiredSkill identifier="electrical" level="20" />
+      <RequiredItem identifier="steel" amount="2" />
+      <RequiredItem identifier="fpgacircuit" amount="2" />
+      <RequiredItem identifier="plastic" amount="1" />
+    </Fabricate>
+    <Body width="185" height="187" density="25" />
+    <Holdable selectkey="Select" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="10.0" aimpos="85,-10" handle1="0,0" attachable="true" attachedbydefault="true"
+      limitedattachable="true" aimable="true">
+      <StatusEffect target="This" type="Always">
+        <Conditional attached="false" targetitemcomponentname="Holdable" />
+        <DropContainedItems />
+      </StatusEffect>
+
+      <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
+        <RequiredItems items="greenauthkey" type="Contained" />
+        <Affliction identifier="codegreen" amount="5" />
+        <ReduceAffliction identifier="codeblue" amount="100" />
+        <ReduceAffliction identifier="codered" amount="100" />
+        <ReduceAffliction identifier="codegamma" amount="100" />
+        <ReduceAffliction identifier="codedelta" amount="100" />
+        <LuaHook name="item.codegreen" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
+        <RequiredItems items="blueauthkey" type="Contained" />
+        <Affliction identifier="codeblue" amount="5" />
+        <ReduceAffliction identifier="codegreen" amount="100" />
+        <ReduceAffliction identifier="codered" amount="100" />
+        <ReduceAffliction identifier="codegamma" amount="100" />
+        <ReduceAffliction identifier="codedelta" amount="100" />
+        <LuaHook name="item.codeblue" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
+        <RequiredItems items="redauthkey" type="Contained" />
+        <Affliction identifier="codered" amount="5" />
+        <ReduceAffliction identifier="codegreen" amount="100" />
+        <ReduceAffliction identifier="codeblue" amount="100" />
+        <ReduceAffliction identifier="codegamma" amount="100" />
+        <ReduceAffliction identifier="codedelta" amount="100" />
+        <LuaHook name="item.codered" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
+        <RequiredItems items="gammaauthkey" type="Contained" />
+        <Affliction identifier="codegamma" amount="5" />
+        <ReduceAffliction identifier="codegreen" amount="100" />
+        <ReduceAffliction identifier="codeblue" amount="100" />
+        <ReduceAffliction identifier="codered" amount="100" />
+        <ReduceAffliction identifier="codedelta" amount="100" />
+        <LuaHook name="item.codegamma" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
+        <RequiredItems items="deltaauthkey" type="Contained" />
+        <Affliction identifier="codedelta" amount="5" />
+        <ReduceAffliction identifier="codegreen" amount="100" />
+        <ReduceAffliction identifier="codeblue" amount="100" />
+        <ReduceAffliction identifier="codered" amount="100" />
+        <ReduceAffliction identifier="codegamma" amount="100" />
+        <LuaHook name="item.codedelta" />
+      </StatusEffect>
+
+      <StatusEffect type="Always" target="Contained" interval="1">
+        <Use/>
+      </StatusEffect>
+    </Holdable>
+
+    <ItemContainer capacity="1" maxstacksize="1" canbeselected="true" hideitems="true" AllowAccessWhenDropped="false" msg="ItemMsgInteractSelect">
+      <GuiFrame relativesize="0.15,0.2" anchor="Center" style="ItemUI" />
+      <SlotIcon texture="%ModDir%/Sprites/spritesheet.png" sourcerect="340,945,97,79" origin="0.5,0.5" />
+      <Containable items="authkey" />
+    </ItemContainer>
   </Item>
 
 
@@ -408,7 +584,9 @@
       <RequiredItem identifier="plastic" amount="1" />
     </Fabricate>
     <Body width="45" height="8" density="11" />
-    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true">
+    <StatusEffect type="OnUse" target="This" targetcomponent="LightComponent" setvalue="true" isOn="true"/>
+    </Holdable>
   </Item>
 
 
@@ -507,8 +685,6 @@
         <Affliction identifier="blunttrauma" strength="4" />
         <Affliction identifier="stun" strength="0.3" />
       </Attack>
-      <!-- changed to use electricshock: normal batteries cause 45 points of electricshock. Due to strength change of -5/s we can expect full stun in three consecutive hits -->
-      <!-- keep weight check in place for now (affect targets with mass < 40, humans, mudraptors, etc.) -->
       <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
         <Conditional mass="lt 40" />
         <Affliction identifier="stun" strength="0.5" />
@@ -517,8 +693,6 @@
         <Sound file="%ModDir%/Sounds/stunbaton.ogg" range="500" volume="0.6" stackable="true" />
         <ParticleEmitter particle="ElectricShock" DistanceMin="5" DistanceMax="20" ParticleAmount="3" ScaleMin="0.07" ScaleMax="0.1" />
       </StatusEffect>
-      <!-- changed to use electricshock: fulgurium batteries cause 60 points of electricshock -> full stun in two consecutive hits -->
-      <!-- keep weight check in place for now (affect targets with mass < 60, includes veteran mudraptors) -->
       <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
         <Conditional mass="lt 60" />
         <Affliction identifier="stun" strength="0.5" />

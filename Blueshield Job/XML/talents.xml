@@ -460,6 +460,11 @@
     </Description>
     <AddedRecipe itemidentifier="commsterminal" />
     <AddedRecipe itemidentifier="greenauthkey" />
+    <AbilityGroupEffect abilityeffecttype="None">
+      <Abilities>
+        <CharacterAbilityGivePermanentStat statidentifier="commsterminal" stattype="MaxAttachableCount" value="1" />
+      </Abilities>
+    </AbilityGroupEffect>
   </Talent>
 
   <Talent identifier="codeblue">

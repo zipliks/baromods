@@ -4,6 +4,8 @@
   <jobname.blueshield>Blueshield Officer</jobname.blueshield>
   <jobdescription.blueshield>Dedicated to safeguarding ship captains and crew with unwavering commitment and expertise. A trusted guardian of maritime security.</jobdescription.blueshield>
  
+  <flashnuke.prime>Start Countdown (45s)</flashnuke.prime>
+
   <!-- Items -->
 
   <entityname.bsstunbaton>Trusted Stunbaton</entityname.bsstunbaton>
@@ -31,10 +33,10 @@
   <entitydescription.rescuehook>Fires a harmless hook, quickly grabbing the target and then quickly retracting, allowing the wielder to rescue crewmates from danger with relative ease. Reusable</entitydescription.rescuehook>
 
   <entityname.sleepgrenade>Sleep Grenade</entityname.sleepgrenade>
-  <entitydescription.sleepgrenade>Slowly releases a cloud of sedative chemical in the air, slowing and then putting everyone around to sleep, humans and monsters alike. Damaged with water</entitydescription.sleepgrenade>
+  <entitydescription.sleepgrenade>Slowly releases a cloud of sedative chemical in the air, slowing and then putting everyone around to sleep, humans and monsters alike. Breaks in water, somehow sedates those in diving suits</entitydescription.sleepgrenade>
 
   <entityname.boilinggrenade>Boiling Grenade</entityname.boilinggrenade>
-  <entitydescription.boilinggrenade>When thrown in water, heats the surroudings so hard the water around boils and everyone nearby it drawn towards the grenade. Can't be put off manually, but it disables itself when not in water. Even then, it's so hot it can't be picked up even in diving suits</entitydescription.boilinggrenade>
+  <entitydescription.boilinggrenade>When thrown in water, heats the surroudings so hard the water around boils and everyone nearby it is drawn towards the grenade. Can't be put off manually, but it disables itself when not in water. Even then, it's so hot it can't be picked up even in diving suits</entitydescription.boilinggrenade>
 
   <entityname.violentgrenade>Violent Grenade</entityname.violentgrenade>
   <entitydescription.violentgrenade>When thrown and colliding with a wall or creature, explodes extremely violently and brighly, but doesn't damage the surroudings</entitydescription.violentgrenade>

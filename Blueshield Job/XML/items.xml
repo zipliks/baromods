@@ -144,9 +144,77 @@
   </Item>
 
 
-  <Item identifier="rescuehook" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+  <Item identifier="rescuehook" category="Equipment" Tags="mediumitem,weapon,gunsmith,provocativetohumanai,mountableweapon" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.5"
+    impactsoundtag="impact_soft">
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="0,457,178,71" origin="0.5,0.5" />
     <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="343,75,66,66" depth="0.6" origin="0.5,0.5" />
+    <Body width="180" height="30" density="25" />
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+      <Item identifier="plastic" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20">
+      <RequiredSkill identifier="weapons" level="20" />
+      <RequiredItem identifier="steel" amount="2" />
+      <RequiredItem identifier="plastic" amount="2" />
+      <RequiredItem identifier="batterycell" amount="2" />
+    </Fabricate>
+    <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="35,-10" aimpos="45,-10" handle1="-40,-6" handle2="20,10" holdangle="-40" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnSecondaryUse" Target="This">
+        <SpawnItem identifiers="rescuehook_proj" spawnposition="ThisInventory" />
+      </StatusEffect>
+      <StatusEffect type="Always" Target="This" disabledeltatime="true" interval="0.2" condition="5">
+        <Conditional condition="lt 100" />
+        <SpawnItem identifiers="rescuehook_proj" spawnposition="ThisInventory" />
+      </StatusEffect>
+    </Holdable>
+    <RangedWeapon reload="5" launchimpulse="20.0" barrelpos="85,14" spread="1" unskilledspread="10" combatPriority="60" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="Content/Items/Weapons/HarpoonGun1.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/HarpoonGun2.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/HarpoonGun3.ogg" type="OnUse" range="1000" />
+      <StatusEffect type="OnUse" target="This" condition="1" setvalue="true">
+        <Explosion range="150.0" force="5" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
+      </StatusEffect>
+      <RequiredItems items="rescuehook_proj" type="Contained" />
+      <RequiredSkill identifier="weapons" level="30" />
+    </RangedWeapon>
+    <ItemContainer capacity="1" hideitems="true" drawinventory="false" showdondition="false" ShowConditionInContainedStateIndicator="true">
+      <Containable items="rescuehook_proj" />
+    </ItemContainer>
+    <aitarget sightrange="0" soundrange="500" fadeouttime="2" />
+  </Item>
+
+  <Item name="rescuehook_proj" identifier="rescuehook_proj" category="Weapon" maxstacksize="1" maxstacksizecharacterinventory="1" scale="0.25" interactthroughwalls="true"
+    cargocontaineridentifier="metalcrate"
+    tags="mediumitem,harpoonammo,handheldammo" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Sprite texture="%ModDir%/Sprites/spritesheet.png" sourcerect="202,462,98,40" depth="0.55" origin="0.5,0.5" />
+    <Body width="20" height="50" density="30" />
+    <Rope sourcepullforce="200" targetpullforce="1000" projectilepullforce="5" maxlength="1500" snaponcollision="false" spritewidth="8" tile="true" origin="0.05,0.5" targetminmass="10"
+      lerpforces="true" snapanimduration="0.5" ReelSoundPitchSlide="1.0,2.25">
+      <Sprite texture="Content/Items/Alien/AlienRuins_Items.png" sourcerect="481,1789,122,48" depth="0.57" origin="0.5,0.5" />
+      <SnapSound file="Content/Items/Weapons/HarpoonGun1.ogg" range="500" frequencymultiplier="3.0,4.0" />
+      <ReelSound file="Content/Items/Weapons/WEAPON_harpoonGunReelLoop.ogg" range="1000" />
+      <!-- Snap after 1 seconds if not stuck to anything -->
+      <StatusEffect type="OnUse" target="This" Snapped="true" delay="1" checkconditionalalways="true">
+        <Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />
+      </StatusEffect>
+    </Rope>
+    <Projectile characterusable="false" launchimpulse="5" sticktocharacters="true" sticktoitems="true" sticktostructures="true" sticktodeflective="true" sticktodoors="false" sticktolighttargets="true">
+      <Attack structuredamage="0" itemdamage="0" targetforce="20" severlimbsprobability="0">
+        <Affliction identifier="stun" strength="0.2" />
+      </Attack>
+      <StatusEffect type="OnActive" target="UseTarget,This" checkconditionalalways="true" comparison="And" disabledeltatime="true">
+        <Conditional Snapped="false" />
+        <Conditional mass="lt 10" />
+        <Affliction identifier="drag" strength="2" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" disabledeltatime="true">
+        <Conditional Snapped="true" />
+        <Remove />
+      </StatusEffect>
+    </Projectile>
   </Item>
 
 
@@ -165,18 +233,134 @@
   </Item>
 
 
-  <Item identifier="sleepgrenade" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+  <Item identifier="sleepgrenade" category="Weapon" Tags="smallitem,weapon,explosive,demolitionsexpert,handgrenade" maxstacksize="32" maxstacksizecharacterinventory="8"
+    cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="230,158,25,52" origin="0.5,0.5" />
+    <Body width="5" height="30" density="9" />
+    <Deconstruct time="10">
+      <RequiredItem identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="20" />
+      <RequiredSkill identifier="medical" level="25" />
+      <RequiredItem identifier="steel" />
+      <RequiredItem identifier="chlorine" />
+      <RequiredItem identifier="carbon" />
+    </Fabricate>
+    <Throwable characterusable="false" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnBroken" target="This">
+        <sound file="Content/Items/Weapons/TrueStunGrenade.ogg" range="3000" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true" checkconditionalalways="true">
+        <Conditional IsActive="false" targetitemcomponent="ItemComponent" />
+        <Use />
+      </StatusEffect>
+    </Throwable>
+    <ItemComponent IsActive="false" CharacterUsable="true">
+      <StatusEffect type="OnActive" targettype="This" IsActive="false" setvalue="true" condition="-100">
+        <Conditional inwater="true" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" targettype="This" IsActive="true" DontCleanUp="true" comparison="AND" condition="-1">
+        <Conditional IsActive="false" targetitemcomponent="ItemComponent" />
+        <ParticleEmitter particle="grenadepin" emitinterval="10" particleamount="1" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="0.5"
+          scalemax="0.5" />
+        <ParticleEmitter particle="grenadelever" emitinterval="10" particleamount="1" anglemin="120" anglemax="210" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="0.5"
+          scalemax="0.5" />
+        <Sound file="Content/Items/Weapons/pinpull.ogg" type="OnUse" range="720" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" disabledeltatime="true" interval="0.5" Condition="-1">
+        <ParticleEmitter particle="flamethrowersmoke" particlespersecond="25" anglemin="0" anglemax="0" velocitymin="75" velocitymax="125" copyentityangle="true" scalemin="0.2" scalemax="0.4"
+          colormultiplier="0,255,50,150" />
+        <Affliction identifier="stun" strength="1" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="NearbyCharacters" range="400" interval="0.5" disabledeltatime="true">
+        <Affliction identifier="sleepgrenade" strength="3" />
+      </StatusEffect>
+    </ItemComponent>
   </Item>
 
 
-  <Item identifier="boilinggrenade" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+  <Item identifier="boilinggrenade" category="Equipment" Tags="smallitem,weapon,explosive,demolitionsexpert,handgrenade" maxstacksize="32" maxstacksizecharacterinventory="8"
+    cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="255,158,25,52" origin="0.5,0.5" />
+    <Body width="5" height="30" density="9" />
+    <Deconstruct time="10">
+      <RequiredItem identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="30" />
+      <RequiredItem identifier="steel" />
+      <RequiredItem identifier="incendium" />
+    </Fabricate>
+    <Throwable characterusable="false" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnBroken" target="This" isdangerous="false" noninteractable="false" sonarsize="0">
+        <sound file="Content/Items/Weapons/TrueStunGrenade.ogg" range="3000" />
+      </StatusEffect>
+      <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true" checkconditionalalways="true" isdangerous="true" noninteractable="true" sonarsize="1">
+        <Conditional IsActive="false" targetitemcomponent="ItemComponent" />
+        <Use />
+      </StatusEffect>
+    </Throwable>
+    <ItemComponent IsActive="false" CharacterUsable="true">
+      <StatusEffect type="OnUse" targettype="This" IsActive="true" DontCleanUp="true" comparison="AND" condition="-1">
+        <Conditional IsActive="false" targetitemcomponent="ItemComponent" />
+        <ParticleEmitter particle="grenadepin" emitinterval="10" particleamount="1" anglemin="70" anglemax="100" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="0.5"
+          scalemax="0.5" />
+        <ParticleEmitter particle="grenadelever" emitinterval="10" particleamount="1" anglemin="120" anglemax="210" velocitymin="100" velocitymax="200" copyentityangle="true" scalemin="0.5"
+          scalemax="0.5" />
+        <Sound file="Content/Items/Weapons/pinpull.ogg" type="OnUse" range="720" />
+      </StatusEffect>
+      <StatusEffect type="OnActive" targettype="This" interval="0.1" disabledeltatime="true" condition="-0.4">
+        <Conditional inwater="true" />
+        <Explosion range="200" ballastfloradamage="30" itemdamage="200" force="-15" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="true" camerashake="0">
+          <Affliction identifier="burn" strength="5" />
+          <Affliction identifier="stun" strength="1" />
+          <Affliction identifier="burn" strength="5" probability="0.2" dividebylimbcount="false" />
+        </Explosion>
+      </StatusEffect>
+    </ItemComponent>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.15" />
+      <QualityStat stattype="ExplosionDamage" value="0.15" />
+    </Quality>
   </Item>
 
 
-  <Item identifier="violentgrenade" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
-    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="206,158,24,52" origin="0.5,0.5" />
+  <Item identifier="violentgrenade" category="Weapons" Tags="smallitem,weapon,explosive,demolitionsexpert,handgrenade" maxstacksize="32" impacttolerance="3" maxstacksizecharacterinventory="8"
+    cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
+    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="206,159,24,52" origin="0.5,0.5" />
+    <Body width="5" height="30" density="30" />
+    <Deconstruct time="10">
+      <Item identifier="steel" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="20" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="25" />
+      <RequiredItem identifier="steel" />
+      <RequiredItem identifier="phosphorus" amount="3" />
+    </Fabricate>
+    <Throwable characterusable="true" canBeCombined="false" slots="Any,RightHand,LeftHand" throwforce="3.5" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+      <StatusEffect type="OnFire" target="This" Condition="-100.0" delay="0.5" />
+      <StatusEffect type="OnImpact" target="This" Condition="-10000.0" />
+      <StatusEffect type="OnBroken" target="This" Condition="-100.0">
+        <sound file="Content/Sounds/Damage/Limbslash2.ogg" range="750" volume="0.75" />
+        <Explosion range="5000.0" force="300.0" shockwave="true" flames="false" smoke="false" sparks="false">
+          <Affliction identifier="stun" strength="1" />
+          <Affliction identifier="sensoryoverload" strength="100" />
+          <Affliction identifier="blind" strength="100" />
+          <Affliction identifier="blind_hard" strength="100" />
+        </Explosion>
+        <Explosion range="2000.0" force="300.0">
+          <Affliction identifier="stun" strength="3" />
+          <Affliction identifier="blind_hard" strength="100" />
+        </Explosion>
+        <Remove />
+      </StatusEffect>
+    </Throwable>
+    <AiTarget sightrange="1000" static="true" />
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.15" />
+      <QualityStat stattype="ExplosionDamage" value="0.15" />
+    </Quality>
   </Item>
 
 
@@ -430,7 +614,7 @@
   </Item>
 
 
-  <Item identifier="lsd" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+  <Item identifier="lsd" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" useinhealthinterface="true" impactsoundtag="impact_soft">
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="301,153,64,64" origin="0.5,0.5" />
     <Fabricate suitablefabricators="medicalfabricator" requiredtime="2" requiresrecipe="true">
       <RequiredSkill identifier="medical" level="10" />
@@ -439,6 +623,10 @@
     <Body width="4" height="4" density="20" />
     <Holdable slots="Any,RightHand,LeftHand" aimpos="32,28" holdangle="30" aimangle="120" aimable="false" msg="ItemMsgPickUpSelect">
       <StatusEffect type="OnSecondaryUse" target="This" duration="1">
+        <Remove />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained" target="This" duration="1">
+        <Conditional inwater="true"/>
         <Remove />
       </StatusEffect>
       <!-- When drunk -->
@@ -524,7 +712,7 @@
       </StatusEffect>
 
       <StatusEffect type="Always" target="Contained" interval="1">
-        <Use/>
+        <Use />
       </StatusEffect>
     </Holdable>
 
@@ -536,8 +724,31 @@
   </Item>
 
 
-  <Item identifier="floppaportal" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+  <Item identifier="floppaportal" category="Misc" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="457,161,49,43" origin="0.5,0.5" />
+    <!-- rectangular body to prevent the egg from rolling -->
+    <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
+      <RequiredSkill identifier="weapons" level="6" />
+      <RequiredItem identifier="dementonite" amount="1" />
+      <RequiredItem identifier="steel" amount="1" />
+    </Fabricate>
+    <Body width="100" height="60" friction="1.0" restitution="0.01" angulardamping="5" density="11" />
+    <Holdable slots="RightHand+LeftHand,Any" holdpos="30,-70" handle1="0,0" handle2="0,0" />
+    <ItemContainer capacity="1" hideitems="true" showcontainedstateindicator="false" maxstacksize="1">
+      <Containable items="antibloodloss2,alienblood">
+        <StatusEffect type="OnContaining" target="This" targetcomponent="lightcomponent" ison="true" setvalue="true" />
+        <StatusEffect type="OnContaining" target="This" delay="5" oneshot="true">
+          <SpawnCharacter speciesname="floppa" />
+          <Sound file="%ModDir%/Characters/Floppa/floppa_positive7.ogg" type="OnUse" range="2000" />
+        </StatusEffect>
+        <StatusEffect type="OnContaining" target="This" delay="8">
+          <Remove />
+        </StatusEffect>
+      </Containable>
+    </ItemContainer>
+    <LightComponent LightColor="255,255,255,255" castshadows="false" IsOn="false" range="60">
+      <LightTexture texture="%ModDir%/Sprites/ssportal.png" sourcerect="0,0,136,220" depth="0.1" origin="0.5,1.0" />
+    </LightComponent>
   </Item>
 
 
@@ -585,7 +796,7 @@
     </Fabricate>
     <Body width="45" height="8" density="11" />
     <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true">
-    <StatusEffect type="OnUse" target="This" targetcomponent="LightComponent" setvalue="true" isOn="true"/>
+      <StatusEffect type="OnUse" target="This" targetcomponent="LightComponent" setvalue="true" isOn="true" />
     </Holdable>
   </Item>
 
@@ -647,14 +858,230 @@
   </Item>
 
 
-  <Item identifier="gygax" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
-    <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="442,671,102,16" origin="0.5,0.5" />
-
+  <Item name="" identifier="gygax" category="Diving,Equipment" tags="diving,deepdiving,deepdivinglarge,human" scale="0.5" fireproof="true" description="" isshootable="true" allowdroppingonswapwith="diving" impactsoundtag="impact_metal_heavy" botpriority="0.5" cargocontaineridentifier="">
+    <Deconstruct time="30">
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="titaniumaluminiumalloy" />
+      <Item identifier="rubber" />
+      <Item identifier="rubber" />
+    </Deconstruct>
+    <Fabricate suitablefabricators="fabricator" requiredtime="45" requiresrecipe="true">
+      <RequiredSkill identifier="mechanical" level="60" />        
+      <RequiredItem identifier="clownsuitunique" />
+      <RequiredItem identifier="titaniumaluminiumalloy" amount="15" />
+      <RequiredItem identifier="physicorium" amount="15" />
+    </Fabricate>
+    <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="382,895,128,128" origin="0.5,0.5" />
+    <Sprite name="Clown Exosuit Item" texture="Content/Items/JobGear/Clown/ClownExosuit.png" sourcerect="2,277,287,235" depth="0.55" origin="0.5,0.5" />
+    <Body width="150" height="230" density="15" />
+    <Wearable slots="OuterClothes+RightHand" msg="ItemMsgEquipSelect" displaycontainedstatus="true" canbeselected="false" canbepicked="true" pickkey="Select" allowusewhenworn="true">
+      <sprite name="Clown Exosuit Helmet Wearable" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="Head" hidelimb="true" inheritlimbdepth="true" inheritscale="true" ignorelimbscale="true" scale="0.65" hideotherwearables="true" hidewearablesoftype="" sourcerect="0,0,1,1" origin="0.5,0.5"/>
+      <sprite name="Clown Exosuit Torso" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="Torso" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.7" inheritlimbdepth="false" depth="0.061" inheritsourcerect="false" sourcerect="167,1,203,193">
+        <LightComponent range="100" lightcolor="250,224,165,100" castshadows="false" depth="0.6" powerconsumption="10" IsOn="true" allowingameediting="false">
+          <Sprite texture="Content/Items/JobGear/Clown/ClownExosuit.png" origin="0.5,0.7" sourcerect="304,271,203,193" alpha="1.0" />
+        </LightComponent>
+      </sprite>
+      <sprite name="Clown Exosuit Right Hand" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="RightHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="false" depth="0.02" SourceRect="383,160,64,48" />
+      <sprite name="Clown Exosuit Left Hand" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="LeftHand" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" SourceRect="447,160,64,48" />
+      <sprite name="Clown Exosuit Right Upper Arm" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="RightArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="false" depth="0.05" SourceRect="383,0,64,96" />
+      <sprite name="Clown Exosuit Left Upper Arm" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="LeftArm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" SourceRect="447,0,64,96" />
+      <sprite name="Clown Exosuit Right Forearm" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="RightForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" inheritlimbdepth="false" depth="0.049" SourceRect="383,96,64,64" />
+      <sprite name="Clown Exosuit Left Forearm" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="LeftForearm" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="false" SourceRect="447,96,64,64"  />
+      <sprite name="Clown Exosuit Waist" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="Waist" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="false" depth="0.06" sourcerect="182,196,178,53" />
+      <sprite name="Clown Exosuit Right Thigh" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="RightThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" inheritlimbdepth="false" depth="0.058" sourcerect="0,0,96,112" />
+      <sprite name="Clown Exosuit Left Thigh" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="LeftThigh" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" sourcerect="0,0,96,112" />
+      <sprite name="Clown Exosuit Right Leg" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="RightLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritlimbdepth="false" depth="0.059" inheritsourcerect="true" />
+      <sprite name="Clown Exosuit Left Leg" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="LeftLeg" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="true" inheritsourcerect="true" />
+      <sprite name="Clown Exosuit Left Shoe" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="LeftFoot" sound="footstep_clown" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="371,211,133,37" />
+      <sprite name="Clown Exosuit Right Shoe" texture="Content/Items/JobGear/Clown/ClownExosuit.png" limb="RightFoot" sound="footstep_clown" hidelimb="true" inherittexturescale="true" hideotherwearables="true" inheritorigin="false" origin="0.2,0.5" inheritsourcerect="false" sourcerect="371,211,133,37" />
+      <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" UseHullOxygen="false" />
+      <StatusEffect tags="clown" type="OnWearing" target="Character" HideFace="true" duration="0.1" stackable="false" />
+      <StatusEffect type="OnWearing" target="Character" HideFace="true" ObstructVisionAmount="0.5" PressureProtection="7000.0" setvalue="true" disabledeltatime="true">
+        <Sound file="Content/Items/Diving/DivingSuitLoop1.ogg" range="500" loop="true"/>
+        <Sound file="Content/Items/Diving/DivingSuitLoop2.ogg" range="500" loop="true"/>
+        <TriggerAnimation Type="Walk" FileName="HumanWalkExosuit" priority="1" ExpectedSpecies="Human" />
+        <!-- high prio for run animation so e.g. affliction-based run animations won't make the character run faster -->
+        <TriggerAnimation Type="Run" FileName="HumanRunExosuit" priority="10" ExpectedSpecies="Human" />
+      </StatusEffect>
+      <!-- 0 movement speed when out of fuel-->
+      <StatusEffect type="OnWearing" target="This,Character" SpeedMultiplier="-10.0" setvalue="true" disabledeltatime="true">
+        <Conditional Voltage="lte 0.5" />
+      </StatusEffect>
+      <StatusEffect type="OnWearing" target="Contained,Character" Condition="-0.2" targetslot="1" comparison="Or">
+        <Conditional IsDead="false" />
+        <RequiredItem items="reactorfuel" type="Contained" />
+      </StatusEffect>
+      <sound file="Content/Items/Weapons/WEAPONS_chargeUp.ogg" type="OnWearing" range="500.0" volumeproperty="Speed" volume="0.2" loop="true" frequencymultiplier="0.5" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="blunttrauma,gunshotwound,lacerations,explosiondamage" damagemultiplier="0.2" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bitewounds, bleeding" damagemultiplier="0.25" probabilitymultiplier="0.5" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="stun" damagemultiplier="0.5" probabilitymultiplier="0.25" damagesound="LimbArmor" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictiontypes="burn" damagemultiplier="0.5" damagesound="" deflectprojectiles="true" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="radiationsickness" damagemultiplier="0.75" damagesound="LimbArmor"/>
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="huskinfection" probabilitymultiplier="0.1" damagesound="LimbArmor"/>
+      <StatValue stattype="FlowResistance" value="0.9" />
+      <StatValue stattype="PropulsionSpeed" value="-0.5" />
+    </Wearable>
+    <Holdable slots="OuterClothes+RightHand" controlpose="true" aimpos="70,5" handle1="-25,-7" />
+    <RangedWeapon barrelpos="29,11" spread="5" unskilledspread="5" combatPriority="70" drawhudwhenequipped="true" crosshairscale="0.2" reload="0.1" suitableprojectiles="bananapeelprojectile">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="Content/Items/Weapons/GrenadeLauncherShot1.ogg" type="OnUse" selectionmode="All"/>
+      <Sound file="Content/Items/Weapons/honk.ogg" type="OnUse" selectionmode="All"/>
+      <ParticleEmitter particle="explosionsmoke" particleamount="5" velocitymin="0" velocitymax="0" />
+      <StatusEffect type="OnUse" target="This">
+        <SpawnItem identifier="bananapeelprojectile" spawnposition="ThisInventory" count="1" />
+        <Explosion range="500.0" force="2" shockwave="false" smoke="false" flames="false" flash="true" sparks="false" underwaterbubble="false" applyfireeffects="false" camerashake="6.0" />
+      </StatusEffect>
+      <StatusEffect type="OnUse" target="This" reload="5.0" setvalue="true" delay="0.5" />
+      <StatusEffect type="OnUse" target="This" reload="0.1" setvalue="true" delay="5.0" />
+      <RequiredItems items="bananapeelprojectile" type="Contained" />
+    </RangedWeapon>
+    <ItemContainer capacity="0" maxstacksize="0" hideitems="true" containedstateindicatorstyle="tank" containedstateindicatorslot="0">
+      <Containable items="none" />
+      <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="64,448,64,64" origin="0.5,0.5" />
+      <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="192,448,64,64" origin="0.5,0.5" />
+      <StatusEffect type="OnWearing" target="Contained" playsoundonrequireditemfailure="true">
+        <RequiredItem items="oxygensource" type="Contained" matchonempty="true" />
+        <Conditional condition="lte 0.0" />
+        <Sound file="Content/Items/WarningBeep.ogg" range="500" loop="true"/>
+      </StatusEffect>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="oxygensource,weldingtoolfuel" />
+        <Containable items="oxygensource">
+          <StatusEffect type="OnWearing" target="Character" OxygenAvailable="1000.0" />
+          <StatusEffect type="OnWearing" target="Contained" Condition="-0.2" comparison="And">
+            <Conditional TargetContainer="true" TargetGrandparent="true" IsDead="false" />
+            <Conditional TargetContainer="true" TargetGrandparent="true" DecreasedOxygenConsumption="lt 99" />
+            <Conditional TargetContainer="true" TargetGrandparent="true" NeedsAir="true" />
+          </StatusEffect>
+          <StatusEffect type="OnWearing" target="Contained">
+            <Conditional condition="lt 5.0" />
+            <Sound file="Content/Items/WarningBeepSlow.ogg" range="250" loop="true"/>
+          </StatusEffect>
+        </Containable>
+        <Containable items="oxygenitetank">
+          <StatusEffect type="OnWearing" target="Character" SpeedMultiplier="1.2" setvalue="true" targetslot="0" comparison="And">
+            <Conditional IsDead="false" />
+            <Conditional DecreasedOxygenConsumption="lt 99" />
+            <Conditional NeedsAir="true" />
+          </StatusEffect>
+        </Containable>
+        <Containable items="weldingfueltank" blameequipperfordeath="true">
+          <StatusEffect type="OnWearing" target="Contained" Condition="-0.5" comparison="And">
+            <Conditional TargetContainer="true" TargetGrandparent="true" IsDead="false" />
+            <Conditional TargetContainer="true" TargetGrandparent="true" DecreasedOxygenConsumption="lt 99" />
+            <Conditional TargetContainer="true" TargetGrandparent="true" NeedsAir="true" />
+          </StatusEffect>
+          <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" Oxygen="-5.0" comparison="And">
+            <Conditional IsDead="false" />
+            <Conditional DecreasedOxygenConsumption="lt 99" />
+            <Conditional NeedsAir="true" />
+          </StatusEffect>
+        </Containable>
+        <Containable items="incendiumfueltank" blameequipperfordeath="true">
+          <StatusEffect type="OnWearing" target="Contained" Condition="-0.5" comparison="And">
+            <Conditional TargetContainer="true" TargetGrandparent="true" IsDead="false" />
+            <Conditional TargetContainer="true" TargetGrandparent="true" DecreasedOxygenConsumption="lt 99" />
+            <Conditional TargetContainer="true" TargetGrandparent="true" NeedsAir="true" />
+          </StatusEffect>
+          <StatusEffect type="OnWearing" target="Character" OxygenAvailable="-100.0" comparison="And" targetlimb="Torso">
+            <Affliction identifier="burn" amount="20.0"  />
+            <Conditional IsDead="false" />
+            <Conditional DecreasedOxygenConsumption="lt 99" />
+            <Conditional NeedsAir="true" />
+          </StatusEffect>
+        </Containable>
+      </SubContainer>
+      <SubContainer capacity="1" maxstacksize="1">
+        <Containable items="divingsuitfuel">
+          <StatusEffect type="OnContaining" target="This,Character" Voltage="1.0" setvalue="true">
+            <Conditional IsDead="false" />
+          </StatusEffect>
+        </Containable>
+      </SubContainer>
+    </ItemContainer>
+    <ItemContainer capacity="1" maxstacksize="1" hideitems="true" spawnwithid="bananapeelprojectile">
+      <Containable items="bananapeelprojectile" />
+    </ItemContainer>
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.15,0.1" anchor="BottomCenter" pivot="BottomCenter" relativeoffset="0,0.1" style="ItemUI" />
+      <Button text="clownexosuitweapon" connection="signal_out1">
+        <StatusEffect type="OnUse" duration="5" target="NearbyCharacters" range="500" camerashake="5" setvalue="true" stackable="false">
+          <RequiredItem items="divingsuitfuel" type="Contained" />
+          <Affliction identifier="hallucinatingshortduration" strength="3" />
+          <sound file="Content/Items/JobGear/Clown/ClownExosuitHorn.ogg" type="OnUse" range="5000.0" loop="true" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" duration="5" target="NearbyCharacters" targetidentifiers="human" range="500" setvalue="true" stackable="false" conditionalcomparison="And" CheckConditionalAlways="true">
+          <RequiredItem items="divingsuitfuel" type="Contained" />
+          <Conditional HasStatusTag="!equals clown" />
+          <Conditional TeamID="FriendlyNPC"/>
+          <TriggerEvent identifier="clownhaven_progress" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" duration="5" target="Limb,This" targetlimbs="Torso" range="500" camerashake="5" setvalue="true" stackable="false" CheckConditionalAlways="true">
+          <RequiredItem items="divingsuitfuel" type="Contained" />
+          <Conditional ParentInventory="! null" />
+          <ParticleEmitter particle="steamspray" copytargetangle="true" particlespersecond="30" velocitymin="500" velocitymax="1000" anglemin="140" anglemax="140" distancemin="50" distancemax="55" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained" Condition="-0.2" duration="5" targetslot="1" stackable="false">
+          <RequiredItem items="divingsuitfuel" type="Contained" />
+        </StatusEffect>
+      </Button>      
+    </CustomInterface>
+    <aitarget maxsightrange="1500" />
   </Item>
 
 
-  <Item identifier="flashnuke" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.200" impactsoundtag="impact_soft">
+  <Item identifier="flashnuke" category="Equipment" Tags="smallitem" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_soft">
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="937,896,87,128" origin="0.5,0.5" />
+    <Fabricate suitablefabricators="fabricator" requiredtime="60">
+      <RequiredSkill identifier="weapons" level="50" />
+    </Fabricate>
+    <Body width="128" height="85" density="30" />
+    <Holdable slots="RightHand+LeftHand" holdpos="0,-50" handle1="-10,20" handle2="10,20" aimable="false" msg="ItemMsgPickUpSelect" />
+    <AiTarget maxsoundrange="10000" maxsightrange="6000" />
+    <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.16,0.15" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
+      <TickBox text="flashnuke.prime">
+        <StatusEffect type="OnUse" targettype="This" IsOn="true" targetitemcomponent="ItemComponent">
+          <Conditional hastag="gamma"/>
+          <Use />
+        </StatusEffect>
+      </TickBox>
+    </CustomInterface>
+    <ItemComponent characterusable="false" launchimpulse="2.0">
+      <StatusEffect type="OnUse" target="This" IsOn="true" duration="45">
+        <sound file="%ModDir%/Sounds/unica.ogg" range="5000.0" loop="true" volume="0.5" />
+      </StatusEffect>
+      <!-- Self-destruction after 45 seconds-->
+      <StatusEffect type="OnUse" target="This" IsOn="false" delay="45" setvalue="true" condition="-200" />
+      <!-- Effects when taking damage-->
+      <StatusEffect type="OnBroken" target="this">
+        <sound file="%ModDir%/Sounds/stunbaton.ogg" volume="2" range="5000" dontmuffle="true" />
+        <Explosion range="700.0" structuredamage="200" itemdamage="200" ballastfloradamage="200" force="5.0" severlimbsprobability="0" debris="true" decal="explosion" decalsize="1.0"
+          camerashake="15" camerashakerange="15"
+          flashrange="5" flashduration="2.0"
+          screencolor="255,255,255,255" screencolorrange="50000" screencolorduration="10.0" penetration="0.5">
+          <Affliction identifier="stun" strength="100" />
+          <Affliction identifier="blind" strength="150" />
+          <Affliction identifier="sensoryoverload" strength="150" />
+        </Explosion>
+        <Explosion range="20000" force="30.0" smoke="false" sparks="true" empstrength="2.5" applyfireeffects="true" ignorecover="true">
+          <Affliction identifier="emp" strength="50" multiplybymaxvitality="true" />
+        </Explosion>
+        <ParticleEmitter particle="underwaterexplosion" anglemin="0" anglemax="360" particleamount="3" velocitymin="0" velocitymax="0" scalemin="2" scalemax="2" />
+      </StatusEffect>
+      <!-- Remove when broken -->
+      <StatusEffect type="OnBroken" target="This" delay="0.01">
+        <sound file="Content/Items/Weapons/ExplosionDebris1.ogg" range="5000" />
+        <sound file="Content/Items/Weapons/ExplosionDebris2.ogg" range="5000" />
+        <Remove />
+      </StatusEffect>
+    </ItemComponent>
+    <Quality>
+      <QualityStat stattype="ExplosionRadius" value="0.1" />
+      <QualityStat stattype="ExplosionDamage" value="0.1" />
+    </Quality>
   </Item>
 
 

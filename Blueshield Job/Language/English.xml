@@ -4,6 +4,14 @@
   <jobname.blueshield>Blueshield Officer</jobname.blueshield>
   <jobdescription.blueshield>Dedicated to safeguarding ship captains and crew with unwavering commitment and expertise. A trusted guardian of maritime security.</jobdescription.blueshield>
  
+  <flashnuke.prime>Start Countdown (45s)</flashnuke.prime>
+  <gygax.overload>Toggle Overload</gygax.overload>
+  <gygax.taser>Pacifier</gygax.taser>
+  <gygax.disabler>CH-PD Disabler</gygax.disabler>
+  <gygax.lethal>CH-PS 'Firedart'</gygax.lethal>
+  <gygax.rescuehook>Rescue Hook</gygax.rescuehook>
+
+
   <!-- Items -->
 
   <entityname.bsstunbaton>Trusted Stunbaton</entityname.bsstunbaton>
@@ -31,10 +39,10 @@
   <entitydescription.rescuehook>Fires a harmless hook, quickly grabbing the target and then quickly retracting, allowing the wielder to rescue crewmates from danger with relative ease. Reusable</entitydescription.rescuehook>
 
   <entityname.sleepgrenade>Sleep Grenade</entityname.sleepgrenade>
-  <entitydescription.sleepgrenade>Slowly releases a cloud of sedative chemical in the air, slowing and then putting everyone around to sleep, humans and monsters alike. Damaged with water</entitydescription.sleepgrenade>
+  <entitydescription.sleepgrenade>Slowly releases a cloud of sedative chemical in the air, slowing and then putting everyone around to sleep, humans and monsters alike. Breaks in water, somehow sedates those in diving suits</entitydescription.sleepgrenade>
 
   <entityname.boilinggrenade>Boiling Grenade</entityname.boilinggrenade>
-  <entitydescription.boilinggrenade>When thrown in water, heats the surroudings so hard the water around boils and everyone nearby it drawn towards the grenade. Can't be put off manually, but it disables itself when not in water. Even then, it's so hot it can't be picked up even in diving suits</entitydescription.boilinggrenade>
+  <entitydescription.boilinggrenade>When thrown in water, heats the surroudings so hard the water around boils and everyone nearby it is drawn towards the grenade. Can't be put off manually, but it disables itself when not in water. Even then, it's so hot it can't be picked up even in diving suits</entitydescription.boilinggrenade>
 
   <entityname.violentgrenade>Violent Grenade</entityname.violentgrenade>
   <entitydescription.violentgrenade>When thrown and colliding with a wall or creature, explodes extremely violently and brighly, but doesn't damage the surroudings</entitydescription.violentgrenade>
@@ -59,13 +67,13 @@
 
 
   <entityname.implantmindshield>Mindshield Implant</entityname.implantmindshield>
-  <entitydescription.implantmindshield>When injected, provides full immunity to psychosis</entitydescription.implantmindshield>
+  <entitydescription.implantmindshield>When injected, makes its way to the brain and locks some of its neurons to prevent any external mind alterations. For some reason, it also strengthens your loyalty</entitydescription.implantmindshield>
 
   <entityname.implantweldingshield>Welding Implant</entityname.implantweldingshield>
-  <entitydescription.implantweldingshield>When worn, provides full immunity to blindness</entitydescription.implantweldingshield>
+  <entitydescription.implantweldingshield>Special eye shields, preventing eyes from light damage</entitydescription.implantweldingshield>
 
   <entityname.mufflerheadset>Muffler Headset</entityname.mufflerheadset>
-  <entitydescription.mufflerheadset>When worn, provides full immunity to sensory overload</entitydescription.mufflerheadset>
+  <entitydescription.mufflerheadset>Military-grade active sound protection headset</entitydescription.mufflerheadset>
 
   <entityname.floppaportal>Interdimensional Receiver</entityname.floppaportal>
   <entitydescription.floppaportal>Reconsider</entitydescription.floppaportal>
@@ -73,7 +81,7 @@
   
 
   <entityname.commsterminal>Comms Terminal</entityname.commsterminal>
-  <entitydescription.commsterminal>Attach to a wall, then insert the key. Unlimited range, powered with internal battery</entitydescription.commsterminal>
+  <entitydescription.commsterminal>Attach to a wall, then insert the auth key. Unlimited range, powered with internal battery</entitydescription.commsterminal>
 
   <entityname.greenauthkey>Green Auth Key</entityname.greenauthkey>
   <entitydescription.greenauthkey>Green plastic card. When inserted in the comms terminal, boosts submarine movement speed, fabrication speed and deconstruction speed</entitydescription.greenauthkey>
@@ -82,7 +90,7 @@
   <entitydescription.blueauthkey>Blue plastic card. When inserted in the comms terminal, boosts repair, welding and crew movement speed</entitydescription.blueauthkey>
 
   <entityname.redauthkey>Red Auth Key</entityname.redauthkey>
-  <entitydescription.redauthkey>Red plastic card. When inserted in the comms terminal, boosts crew damage resistance and damag</entitydescription.redauthkey>
+  <entitydescription.redauthkey>Red plastic card. When inserted in the comms terminal, boosts crew damage resistance and damage</entitydescription.redauthkey>
 
   <entityname.gammaauthkey>Gamma Auth Key</entityname.gammaauthkey>
   <entitydescription.gammaauthkey>Yellow plastic card. When inserted in the comms terminal, allows usage of the Gygax mech</entitydescription.gammaauthkey>
@@ -91,7 +99,7 @@
   <entitydescription.deltaauthkey>Purple plastic card. When inserted in the comms terminal, allows usage of the flash nuke</entitydescription.deltaauthkey>
 
   <entityname.gygax>Gygax</entityname.gygax>
-  <entitydescription.gygax>A powerful military mech, capable of withstanding extreme stress and moving with great speeds, but hard to make and maintain</entitydescription.gygax>
+  <entitydescription.gygax>A powerful military mech, capable of withstanding extreme stress and moving with great speeds, but hard to make and only works during active gamma-code</entitydescription.gygax>
 
   <entityname.flashnuke>Flash Nuke</entityname.flashnuke>
   <entitydescription.flashnuke>An extremely powerful explosive pacification device. Blinds, stuns and deafens in a huge radius. Can only be used during code delta</entitydescription.flashnuke>
@@ -150,13 +158,13 @@
   <talentdescription.unica>[text]</talentdescription.unica>
 
   <talentname.powbzzt>POW BZZZZT</talentname.powbzzt>
-  <talentdescription.powbzzt>The multirevolver has 3 modes - short stun, progressive slowdown and lethal. Lethal mode is only available during active red, gamma or delta codes. Charged with battery cells</talentdescription.powbzzt>
+  <talentdescription.powbzzt>The multirevolver has 3 modes - short stun, progressive slowdown and lethal. Lethal mode is only available during active red, gamma or delta codes. Charged inside battery-charging devices, make sure you have one.</talentdescription.powbzzt>
 
   <talentname.mindblock>Mindblock</talentname.mindblock>
-  <talentdescription.mindblock>Mindshield implant makes a person permanently immune to psychosis</talentdescription.mindblock>
+  <talentdescription.mindblock>Mindshield implant makes a person permanently immune to psychosis and hallucinations</talentdescription.mindblock>
 
   <talentname.whysodark>Why So Dark?</talentname.whysodark>
-  <talentdescription.whysodark>Use the headset to protect yourself from sensory overload, and welding implant to protect yourself from blindness - two effects of the stun grenade</talentdescription.whysodark>
+  <talentdescription.whysodark>Muffler headset protects one from sensory overload, and welding implants protect you from blindness - two effects of the stun grenade, violent grenade and flash nukes</talentdescription.whysodark>
 
   <talentname.trackerson>Trackers On!</talentname.trackerson>
   <talentdescription.trackerson>Every crewmate with a death alarm implant increases your speed by [speed]% and vitality by [vitality]%. Every crewmate without a death alarm implant gives you psychosis</talentdescription.trackerson>
@@ -239,9 +247,6 @@
   <afflictiondescription.lawenforcement>The Justice makes you take 20% extra damage</afflictiondescription.lawenforcement>
 
   <afflictionname.breathingtube>Breathing tube</afflictionname.breathingtube>
-
-  <afflictionname.adrenalinepump>Adrenaline Pump</afflictionname.adrenalinepump>
-  <afflictiondescription.adrenalinepump>Time is running out</afflictiondescription.adrenalinepump>
 
   <afflictionname.disablerslow>Stamina drained</afflictionname.disablerslow>
   <afflictiondescription.disablerslow>Muscles are numb and aching</afflictiondescription.disablerslow>

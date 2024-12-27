@@ -24,9 +24,11 @@
     </petbehavior>
   </ai>
   <StatusEffect type="OnDeath" target="This">
-    <particleemitter particle="whitegoosplash" particleamount="100" velocitymin="0" velocitymax="300" anglemin="0" anglemax="360" scalemin="0.3" scalemax="0.5" emitinterval="0" particlespersecond="0" highqualitycollisiondetection="False" copyentityangle="False" colormultiplier="255,201,14,255" />
-    <Sound file="Content/Items/Medical/Bandage2.ogg" range="800" />
+    <Sound file="%ModDir%/Sounds/floppaportal.ogg" type="OnUse" range="10000" />
     <RemoveCharacter />
+  </StatusEffect>
+  <StatusEffect type="Always" interval="5" target="NearbyCharacters" range="1000">
+    <Affliction identifier="floppabuff" amount="100"/>
   </StatusEffect>
   <sound File="%ModDir%/Characters/Floppa/floppa_idle1.ogg" State="Idle" Range="1000" Volume="1" Tags="" />
   <sound File="%ModDir%/Characters/Floppa/floppa_idle2.ogg" State="Idle" Range="1000" Volume="1" Tags="" />

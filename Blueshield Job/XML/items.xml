@@ -137,7 +137,7 @@
       <sprite name="Dog Mask Wearable" texture="%moddir%/Sprites/spritesheet.png" sourcerect="347,228,168,200" limb="Head" scale="0.2" origin="0.4,0.5" hidelimb="true" alphaclipotherwearables="true" />
       <StatusEffect type="OnWearing" target="Character" ObstructVisionAmount="0.1" setvalue="true" disabledeltatime="true" />
       <StatusEffect type="OnWearing" target="Character">
-        <Affliction identifier="soultaint" amount="1.0" />
+        <Affliction identifier="soultaint" amount="100.0" />
       </StatusEffect>
       <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="burn" damagemultiplier="2" />
     </Wearable>
@@ -683,48 +683,46 @@
 
       <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
         <RequiredItems items="greenauthkey" type="Contained" />
-        <Affliction identifier="codegreen" amount="5" />
+        <Affliction identifier="codegreen" amount="100" />
         <ReduceAffliction identifier="codeblue" amount="100" />
         <ReduceAffliction identifier="codered" amount="100" />
         <ReduceAffliction identifier="codegamma" amount="100" />
         <ReduceAffliction identifier="codedelta" amount="100" />
-        <LuaHook name="item.codegreen" />
       </StatusEffect>
       <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
         <RequiredItems items="blueauthkey" type="Contained" />
-        <Affliction identifier="codeblue" amount="5" />
+        <Affliction identifier="codeblue" amount="100" />
         <ReduceAffliction identifier="codegreen" amount="100" />
         <ReduceAffliction identifier="codered" amount="100" />
         <ReduceAffliction identifier="codegamma" amount="100" />
         <ReduceAffliction identifier="codedelta" amount="100" />
-        <LuaHook name="item.codeblue" />
       </StatusEffect>
       <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
         <RequiredItems items="redauthkey" type="Contained" />
-        <Affliction identifier="codered" amount="5" />
+        <Affliction identifier="codered" amount="100" />
         <ReduceAffliction identifier="codegreen" amount="100" />
         <ReduceAffliction identifier="codeblue" amount="100" />
         <ReduceAffliction identifier="codegamma" amount="100" />
         <ReduceAffliction identifier="codedelta" amount="100" />
-        <LuaHook name="item.codered" />
       </StatusEffect>
       <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
         <RequiredItems items="gammaauthkey" type="Contained" />
-        <Affliction identifier="codegamma" amount="5" />
+        <Affliction identifier="codegamma" amount="100" />
         <ReduceAffliction identifier="codegreen" amount="100" />
         <ReduceAffliction identifier="codeblue" amount="100" />
         <ReduceAffliction identifier="codered" amount="100" />
         <ReduceAffliction identifier="codedelta" amount="100" />
-        <LuaHook name="item.codegamma" />
       </StatusEffect>
       <StatusEffect type="Always" target="NearbyCharacters" range="100000" interval="5">
         <RequiredItems items="deltaauthkey" type="Contained" />
-        <Affliction identifier="codedelta" amount="5" />
+        <Affliction identifier="codedelta" amount="100" />
         <ReduceAffliction identifier="codegreen" amount="100" />
         <ReduceAffliction identifier="codeblue" amount="100" />
         <ReduceAffliction identifier="codered" amount="100" />
         <ReduceAffliction identifier="codegamma" amount="100" />
-        <LuaHook name="item.codedelta" />
+      </StatusEffect>
+      <StatusEffect type="Always" target="Contained" condition="-10" interval="0.5" delay="0.05" disabledeltatime="true">
+        <Use />
       </StatusEffect>
     </Holdable>
     <ItemContainer capacity="1" maxstacksize="1" canbeselected="true" hideitems="true" AllowAccessWhenDropped="false" msg="ItemMsgInteractSelect">
@@ -755,7 +753,7 @@
         </StatusEffect>
         <StatusEffect type="OnContaining" target="This" targetcomponent="lightcomponent" ison="true" setvalue="true" delay="2" />
         <StatusEffect type="OnContaining" target="This" delay="14" oneshot="true">
-          <SpawnCharacter speciesname="floppa" />
+          <SpawnCharacter speciesname="floppa" totalmaxcount="1" inheritteam="true" />
           <Sound file="%ModDir%/Characters/Floppa/floppa_positive7.ogg" type="OnUse" range="2000" />
         </StatusEffect>
         <StatusEffect type="OnContaining" target="This" delay="17">
@@ -825,7 +823,7 @@
   </Item>
 
 
-  <Item identifier="greenauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+  <Item identifier="greenauthkey" category="Equipment" HideConditionBar="true" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
     <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,945,97,79" origin="0.5,0.5" />
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
     <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
@@ -835,12 +833,16 @@
     </Fabricate>
     <Body width="45" height="8" density="11" />
     <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true">
-      <StatusEffect type="OnUse" target="This" targetcomponent="LightComponent" setvalue="true" isOn="true" />
+      <StatusEffect type="OnUse" target="This" targetcomponent="LightComponent" condition="0" setvalue="true" isOn="true">
+        <Conditional condition="gt 99" />
+        <Sound file="%ModDir%/Sounds/codegreen.ogg" range="500000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="This" condition="10" />
     </Holdable>
   </Item>
 
 
-  <Item identifier="blueauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+  <Item identifier="blueauthkey" category="Equipment" HideConditionBar="true" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
     <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,866,97,79" origin="0.5,0.5" />
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
     <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
@@ -851,11 +853,17 @@
       <RequiredItem identifier="plastic" amount="1" />
     </Fabricate>
     <Body width="45" height="8" density="11" />
-    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true">
+      <StatusEffect type="OnUse" target="This" targetcomponent="LightComponent" condition="0" setvalue="true" isOn="true">
+        <Conditional condition="gt 99" />
+        <Sound file="%ModDir%/Sounds/coderedblue.ogg" range="500000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="This" condition="10" />
+    </Holdable>
   </Item>
 
 
-  <Item identifier="redauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+  <Item identifier="redauthkey" category="Equipment" HideConditionBar="true" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
     <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,787,97,79" origin="0.5,0.5" />
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
     <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
@@ -865,11 +873,17 @@
       <RequiredItem identifier="plastic" amount="1" />
     </Fabricate>
     <Body width="45" height="8" density="11" />
-    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true">
+      <StatusEffect type="OnUse" target="This" targetcomponent="LightComponent" condition="0" setvalue="true" isOn="true">
+        <Conditional condition="gt 99" />
+        <Sound file="%ModDir%/Sounds/coderedblue.ogg" range="500000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="This" condition="10" />
+    </Holdable>
   </Item>
 
 
-  <Item identifier="gammaauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+  <Item identifier="gammaauthkey" category="Equipment" HideConditionBar="true" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
     <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,708,97,79" origin="0.5,0.5" />
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
     <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
@@ -879,11 +893,17 @@
       <RequiredItem identifier="plastic" amount="1" />
     </Fabricate>
     <Body width="45" height="8" density="11" />
-    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true">
+      <StatusEffect type="OnUse" target="This" targetcomponent="LightComponent" condition="0" setvalue="true" isOn="true">
+        <Conditional condition="gt 99" />
+        <Sound file="%ModDir%/Sounds/codegamma.ogg" range="500000" loop="false" />
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="This" condition="10" />
+    </Holdable>
   </Item>
 
 
-  <Item identifier="deltaauthkey" category="Equipment" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
+  <Item identifier="deltaauthkey" category="Equipment" HideConditionBar="true" Tags="smallitem,authkey" maxstacksize="1" cargocontaineridentifier="metalcrate" scale="1" impactsoundtag="impact_soft">
     <InventoryIcon texture="%moddir%/Sprites/spritesheet.png" sourcerect="240,629,97,79" origin="0.5,0.5" />
     <Sprite texture="%moddir%/Sprites/spritesheet.png" sourcerect="30,733,15,4" origin="0.5,0.5" />
     <Fabricate suitablefabricators="fabricator" requiredtime="10" requiresrecipe="true">
@@ -893,7 +913,14 @@
       <RequiredItem identifier="plastic" amount="1" />
     </Fabricate>
     <Body width="45" height="8" density="11" />
-    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true" />
+    <Holdable slots="Any,RightHand,LeftHand" holdpos="0,0" handle1="-10,0" holdangle="90" aimpos="45,0" aimangle="90" aimable="true">
+      <StatusEffect type="OnUse" target="This" targetcomponent="LightComponent" condition="0" setvalue="true" isOn="true">
+        <Conditional condition="gt 99" />
+        <Sound file="%ModDir%/Sounds/codedelta.ogg" range="500000" loop="false" />
+        
+      </StatusEffect>
+      <StatusEffect type="OnContained" target="This" condition="10" />
+    </Holdable>
   </Item>
 
 
@@ -964,7 +991,7 @@
       <StatusEffect type="OnWearing" targettype="Contained" targetslot="0" Condition="-0.2">
         <RequiredItem items="mobilebattery" type="Contained" />
       </StatusEffect>
-      <ItemContainer capacity="1" drawinventory="false" maxstacksize="1" canbeselected="true" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="battery"
+      <ItemContainer capacity="1" drawinventory="false" maxstacksize="1" canbeselected="true" hideitems="true" containedstateindicatorslot="0" containedstateindicatorstyle="battery"
         RemoveContainedItemsOnDeconstruct="true">
         <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="128,448,64,64" origin="0.5,0.5" />
         <Containable items="mobilebattery">
@@ -1064,7 +1091,7 @@
       </StatusEffect>
       <StatusEffect type="OnUse" target="This">
         <RequiredItems items="rescuehook_proj" type="Contained" />
-      <Sound file="Content/Items/Weapons/HarpoonGun1.ogg" type="OnUse" range="1000" />
+        <Sound file="Content/Items/Weapons/HarpoonGun1.ogg" type="OnUse" range="1000" />
       </StatusEffect>
       <!-- Enable when gamma -->
       <StatusEffect type="OnWearing" target="This,Character" isshootable="true" setvalue="true" interval="0.5" disabledeltatime="true">
@@ -1090,7 +1117,6 @@
       <GuiFrame relativesize="0.16,0.15" anchor="CenterLeft" pivot="BottomLeft" relativeoffset="0.006,-0.05" style="ItemUI" />
       <TickBox text="flashnuke.prime">
         <StatusEffect type="OnUse" targettype="This" IsOn="true" targetitemcomponent="ItemComponent">
-          <Conditional hastag="gamma" />
           <Use />
         </StatusEffect>
       </TickBox>

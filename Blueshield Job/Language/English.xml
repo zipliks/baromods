@@ -232,6 +232,9 @@
   <afflictionname.lsd>LSD</afflictionname.lsd>
   <afflictiondescription.lsd>Oh wow</afflictiondescription.lsd>
 
+  <afflictionname.sleepgrenade>Sleep Grenade</afflictionname.sleepgrenade>
+  <afflictiondescription.sleepgrenade>Bedtime</afflictiondescription.sleepgrenade>
+
   <afflictionname.deathalarm>Death alarm</afflictionname.deathalarm>
 
   <afflictionname.mindshield>Mindshielded</afflictionname.mindshield>

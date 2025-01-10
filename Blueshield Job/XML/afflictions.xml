@@ -158,14 +158,14 @@
 
   <Affliction identifier="trackerson" type="buff" limbspecific="false" indicatorlimb="Head" showinhealthscannerthreshold="500" showiconthreshold="500" maxstrength="15" HealableInMedicalClinic="false">
     <Effect minstrength="0" maxstrength="16"
-      minspeedmultiplier="0" maxspeedmultiplier="0.5" minvitalitydecrease="0" maxvitalitydecrease="0.6" />
+      minspeedmultiplier="1" maxspeedmultiplier="1.5" minvitalitydecrease="0" maxvitalitydecrease="0.6" />
     <icon texture="%moddir%/Sprites/afflictionicons.png" sourcerect="256,1128,128,128" origin="0.5,0.5" />
   </Affliction>
 
   <Affliction identifier="captainyouthere" type="buff" limbspecific="false" indicatorlimb="Head" showinhealthscannerthreshold="500" showiconthreshold="1" maxstrength="4"
     HealableInMedicalClinic="false">
     <Effect minstrength="0" maxstrength="4"
-      minspeedmultiplier="0" maxspeedmultiplier="0.4" />
+      minspeedmultiplier="1" maxspeedmultiplier="1.4" />
     <icon texture="%moddir%/Sprites/afflictionicons.png" sourcerect="384,128,128,128" origin="0.5,0.5" />
   </Affliction>
 

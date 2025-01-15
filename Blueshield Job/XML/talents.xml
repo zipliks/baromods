@@ -7,10 +7,10 @@
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="0,0" sheetelementsize="128,128" />
     <Description tag="talentdescription.glorytocoalition">
       <Replace tag="[requirement]" value="30" color="gui.green" />
-      <Replace tag="[bonus]" value="20" color="gui.green" />
+      <Replace tag="[bonus]" value="10" color="gui.green" />
       <Replace tag="[xpamount]" value="500" color="gui.green" />
       <Replace tag="[skillmedical]" value="skillname.medical" color="gui.green" />
-      <Replace tag="[skillweapon]" value="skillname.weapons" color="gui.green" />
+      <Replace tag="[skillweapons]" value="skillname.weapons" color="gui.green" />
       <Replace tag="[skillhelm]" value="skillname.helm" color="gui.green" />
     </Description>
     <Description tag="talentdescription.glorytocoalition2">
@@ -35,9 +35,9 @@
       </Conditions>
       <Abilities>
         <CharacterAbilityGiveExperience amount="500" />
-        <CharacterAbilityGivePermanentStat stattype="MedicalSkillBonus" statidentifier="glorytocoalition" value="15" setvalue="true" removeondeath="false" />
-        <CharacterAbilityGivePermanentStat stattype="WeaponsSkillBonus" statidentifier="glorytocoalition" value="15" setvalue="true" removeondeath="false" />
-        <CharacterAbilityGivePermanentStat stattype="HelmSkillBonus" statidentifier="glorytocoalition" value="15" setvalue="true" removeondeath="false" />
+        <CharacterAbilityGivePermanentStat stattype="MedicalSkillBonus" statidentifier="glorytocoalition" value="10" setvalue="true" removeondeath="false" />
+        <CharacterAbilityGivePermanentStat stattype="WeaponsSkillBonus" statidentifier="glorytocoalition" value="10" setvalue="true" removeondeath="false" />
+        <CharacterAbilityGivePermanentStat stattype="HelmSkillBonus" statidentifier="glorytocoalition" value="10" setvalue="true" removeondeath="false" />
       </Abilities>
     </AbilityGroupEffect>
   </Talent>
@@ -109,11 +109,11 @@
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="0,1" sheetelementsize="128,128" />
     <Description tag="talentdescription.learningtoswitchhandsrevolver">
       <Replace tag="[seconds]" value="8" color="gui.green" />
-      <Replace tag="[damage]" value="25" color="gui.green" />
+      <Replace tag="[damage]" value="30" color="gui.green" />
     </Description>
     <Description tag="talentdescription.learningtoswitchhandsstun">
       <Replace tag="[seconds]" value="8" color="gui.green" />
-      <Replace tag="[damage]" value="25" color="gui.green" />
+      <Replace tag="[damage]" value="30" color="gui.green" />
     </Description>
     <Description tag="talentdescription.reducedualwieldpenalty">
       <Replace tag="[amount]" value="50" color="gui.green" />
@@ -385,22 +385,28 @@
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="0,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.mindblock" />
     <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="entityname.implantmindshield" color="gui.orange" />
+      <Replace tag="[itemname]" value="entityname.implantmindshield,entityname.bsimplanter" color="gui.orange" />
     </Description>
     <AddedRecipe itemidentifier="implantmindshield" />
+    <AddedRecipe itemidentifier="bsimplanter" />
   </Talent>
 
   <Talent identifier="whysodark">
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="1,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.whysodark" />
     <Description tag="talentdescription.unlockrecipe">
-      <Replace tag="[itemname]" value="entityname.implantweldingshield, entityname.mufflerheadset" color="gui.orange" />
+      <Replace tag="[itemname]" value="entityname.implantweldingshield, entityname.mufflerheadset,entityname.entityname.bsimplanter" color="gui.orange" />
     </Description>
     <AddedRecipe itemidentifier="mufflerheadset" />
     <AddedRecipe itemidentifier="implantweldingshield" />
+    <AddedRecipe itemidentifier="bsimplanter" />
   </Talent>
 
+  <!-- START OF WIP -->
+  
   <!-- Проверка на количество имплантированных? -->
+
+  <!-- 
   <Talent identifier="trackerson">
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="2,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.trackerson">
@@ -408,8 +414,45 @@
       <Replace tag="[vitality]" value="4" color="gui.green" />
     </Description>
   </Talent>
+  -->
+
+  <Talent identifier="trackerson">
+    <Icon texture="Content/UI/TalentsIcons3.png" sheetindex="3,4" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.assistantdragatfullspeed"/>
+    <Description tag="talentdescription.emergencyresponse">
+      <Replace tag="[movementspeed]" value="40" color="gui.green"/>
+    </Description>
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionCrewMemberUnconscious />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffects>
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="emergencyresponse_selfbuff" amount="1.0"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffects>
+      </Abilities>
+    </AbilityGroupInterval>
+    <AbilityGroupInterval interval="0.9">
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToAllies allowself="false" jobs="assistant">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="emergencyresponse" amount="1.0"/>
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
+      </Abilities>
+    </AbilityGroupInterval>
+  </Talent>
+
 
   <!-- Проверка на количество критических? -->
+
+  <!-- 
   <Talent identifier="captainyouthere">
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="3,2" sheetelementsize="128,128" />
     <Description tag="talentdescription.captainyouthere">
@@ -417,6 +460,19 @@
       <Replace tag="[speedmax]" value="40" color="gui.green" />
     </Description>
   </Talent>
+  -->
+
+  <Talent identifier="captainyouthere">
+    <Icon texture="Content/UI/TalentsIcons1.png" sheetindex="6,5" sheetelementsize="128,128"/>
+    <Description tag="talentdescription.firemanscarry"/>
+    <AbilityGroupEffect abilityeffecttype="None" >
+      <Abilities>
+        <CharacterAbilityGiveFlag flagtype="MoveNormallyWhileDragging" />
+      </Abilities>
+    </AbilityGroupEffect>
+  </Talent>
+  
+  <!-- END OF WIP -->
 
   <Talent identifier="warcrimes">
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="4,2" sheetelementsize="128,128" />
@@ -450,7 +506,9 @@
   <Talent identifier="codegreen">
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="0,3" sheetelementsize="128,128" />
     <Description tag="talentdescription.codegreen">
-      <Replace tag="[amount]" value="20" color="gui.green" /> /</Description>
+      <Replace tag="[fabricatorspeed]" value="50" color="gui.green" />
+      <Replace tag="[pumpenginespeed]" value="20" color="gui.green" />
+    </Description>
     <Description tag="talentdescription.codeextra" color="gui.orange">
       <Replace tag="[text]" value="talentdescription.codeextrared" color="gui.red" />
     </Description>
@@ -473,18 +531,26 @@
         <CharacterAbilityGiveItemStatToTags tags="engine" stattype="EngineSpeed" stackable="false" value="1.2" />
       </Abilities>
     </AbilityGroupInterval>
-    <AbilityGroupEffect abilityeffecttype="None">
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="precodegreen" minimumpercentage="0.1" />
+      </Conditions>
       <Abilities>
-        <CharacterAbilityGiveItemStatToTags tags="pump" stattype="PumpSpeed" stackable="false" value="1.2" />
-        <CharacterAbilityGiveItemStatToTags tags="engine" stattype="EngineSpeed" stackable="false" value="1.2" />
+        <CharacterAbilityApplyStatusEffectsToAllies maxdistance="2000" allowself="true">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="codegreen" amount="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
       </Abilities>
-    </AbilityGroupEffect>
+    </AbilityGroupInterval>
   </Talent>
 
   <Talent identifier="codeblue">
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="1,3" sheetelementsize="128,128" />
     <Description tag="talentdescription.codeblue">
-      <Replace tag="[amount]" value="20" color="gui.green" />
+      <Replace tag="[amount]" value="30" color="gui.green" />
     </Description>
     <Description tag="talentdescription.codeextra" color="gui.orange">
       <Replace tag="[text]" value="talentdescription.codeextrared" color="gui.red" />
@@ -493,6 +559,20 @@
       <Replace tag="[itemname]" value="entityname.blueauthkey" color="gui.orange" />
     </Description>
     <AddedRecipe itemidentifier="blueauthkey" />
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="precodeblue" minimumpercentage="0.1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToAllies maxdistance="2000" allowself="true">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="codeblue" amount="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
+      </Abilities>
+    </AbilityGroupInterval>
   </Talent>
 
   <Talent identifier="codered">
@@ -506,9 +586,28 @@
     <Description tag="talentdescription.unlockrecipe">
       <Replace tag="[itemname]" value="entityname.redauthkey" color="gui.orange" />
     </Description>
+    <Description tag="talentdescription.unlockrecipe">
+      <Replace tag="[itemname]" value="entityname.gygax" color="gui.orange" />
+    </Description>
+    <AddedRecipe itemidentifier="gygax" />
     <AddedRecipe itemidentifier="redauthkey" />
+    <AbilityGroupInterval interval="0.9">
+      <Conditions>
+        <AbilityConditionHasAffliction afflictionidentifier="precodered" minimumpercentage="0.1" />
+      </Conditions>
+      <Abilities>
+        <CharacterAbilityApplyStatusEffectsToAllies maxdistance="2000" allowself="true">
+          <StatusEffects>
+            <StatusEffect type="OnAbility" target="Character" disabledeltatime="true">
+              <Affliction identifier="codered" amount="1.0" />
+            </StatusEffect>
+          </StatusEffects>
+        </CharacterAbilityApplyStatusEffectsToAllies>
+      </Abilities>
+    </AbilityGroupInterval>
   </Talent>
 
+  <!--
   <Talent identifier="codegamma">
     <Icon texture="%ModDir%/Sprites/talenticons.png" sheetindex="3,3" sheetelementsize="128,128" />
     <Description tag="talentdescription.codegamma" />
@@ -534,4 +633,6 @@
     <AddedRecipe itemidentifier="flashnuke" />
     <AddedRecipe itemidentifier="deltaauthkey" />
   </Talent>
+-->
+
 </Talents>

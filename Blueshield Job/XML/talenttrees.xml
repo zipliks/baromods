@@ -55,10 +55,12 @@
       <TalentOptions>
         <TalentOption identifier="codered" />
       </TalentOptions>
+      <!-- 
       <TalentOptions>
         <TalentOption identifier="codegamma" />
         <TalentOption identifier="codedelta" />
       </TalentOptions>
+      -->
     </SubTree>
   </TalentTree>
 </TalentTrees>

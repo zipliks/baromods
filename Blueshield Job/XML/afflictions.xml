@@ -27,17 +27,6 @@
 
   <Affliction identifier="chemicalimplant" type="implant" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="1" showiconthreshold="100" maxstrength="10"
     HealableInMedicalClinic="false">
-    <Effect minstrength="0" maxstrength="10">
-      <StatusEffect target="Character">
-        <Conditional isDead="true" disabledeltatime="true"/>
-        <Explosion range="500" ballastfloradamage="0" itemdamage="0" force="1" sparks="false" shockwave="false" flames="false" smoke="false" flash="false">
-          <Affliction identifier="acidburn" strength="150" />
-          <Affliction identifier="acidburn" strength="50" probability="0.2" dividebylimbcount="false" />
-          <Affliction identifier="stun" strength="0.5" />
-        </Explosion>
-        <SpawnItem identifier="acidmistemitter" count="10" aimspread="360" impulse="30" rotationtype="Collider" rotation="0" spawnposition="This" />
-      </StatusEffect>
-    </Effect>
     <icon texture="%moddir%/Sprites/afflictionicons.png" sourcerect="0,0,1,1" origin="0.5,0.5" />
   </Affliction>
 
@@ -55,8 +44,8 @@
   <Affliction identifier="codegreen" type="buff" showbarinhealthmenu="false" iconcolors="0,200,50" limbspecific="false" indicatorlimb="Head" showinhealthscannerthreshold="1" showiconthreshold="1"
     maxstrength="10" HealableInMedicalClinic="false">
     <Effect minstrength="0" maxstrength="10">
-      <StatValue stattype="DeconstructorSpeedMultiplier" value="0.2" />
-      <StatValue stattype="FabricationSpeed" value="0.2" />
+      <StatValue stattype="DeconstructorSpeedMultiplier" value="0.5" />
+      <StatValue stattype="FabricationSpeed" value="0.5" />
     </Effect>
     <icon texture="%moddir%/Sprites/afflictionicons.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
   </Affliction>
@@ -65,10 +54,9 @@
     maxstrength="10"
     HealableInMedicalClinic="false">
     <Effect minstrength="0" maxstrength="10">
-      <StatValue stattype="AttackMultiplier" value="0.2" />
-      <StatValue stattype="MovementSpeed" value="0.2" />
-      <StatValue stattype="RepairSpeed" value="0.2" />
-      <StatValue stattype="RepairToolStructureRepairMultiplier" value="0.2" />
+      <StatValue stattype="MovementSpeed" value="0.3" />
+      <StatValue stattype="RepairSpeed" value="0.3" />
+      <StatValue stattype="RepairToolStructureRepairMultiplier" value="0.3" />
     </Effect>
     <icon texture="%moddir%/Sprites/afflictionicons.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
   </Affliction>
@@ -82,6 +70,7 @@
     <icon texture="%moddir%/Sprites/afflictionicons.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
   </Affliction>
 
+<!-- 
   <Affliction identifier="codegamma" type="buff" showbarinhealthmenu="false" iconcolors="255,150,0" limbspecific="false" indicatorlimb="Head" showinhealthscannerthreshold="1" showiconthreshold="1"
     maxstrength="10"
     HealableInMedicalClinic="false">
@@ -95,6 +84,7 @@
     <Effect minstrength="0" maxstrength="10" />
     <icon texture="%moddir%/Sprites/afflictionicons.png" sourcerect="0,0,128,128" origin="0.5,0.5" />
   </Affliction>
+-->
 
   <Affliction identifier="stunattack" type="buff" limbspecific="false" indicatorlimb="Torso" showinhealthscannerthreshold="500" showiconthreshold="1" maxstrength="9" HealableInMedicalClinic="false">
     <Effect minstrength="0" maxstrength="9" />
@@ -223,4 +213,50 @@
       minspeedmultiplier="1" maxspeedmultiplier="0.05" />
     <icon texture="%moddir%/Sprites/afflictionicons.png" sourcerect="128,384,128,128" origin="0.5,0.5" />
   </Affliction>
+
+    <Affliction
+    identifier="precodegreen"
+    nameidentifier="precodegreen"
+    type="talentbuff"
+    isbuff="true"
+    limbspecific="false"
+    maxstrength="1"
+    showiconthreshold="1000"
+    treatmentthreshold="1000"
+    showicontoothersthreshold="1000"
+    showinhealthscannerthreshold="1000"
+    iconcolors="0,0,0">
+    <Icon texture="Content/UI/TalentsIcons4.png" sheetindex="2,3" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+
+    <Affliction
+    identifier="precodeblue"
+    nameidentifier="precodeblue"
+    type="talentbuff"
+    isbuff="true"
+    limbspecific="false"
+    maxstrength="1"
+    showiconthreshold="1000"
+    treatmentthreshold="1000"
+    showicontoothersthreshold="1000"
+    showinhealthscannerthreshold="1000"
+    iconcolors="0,0,0">
+    <Icon texture="Content/UI/TalentsIcons4.png" sheetindex="2,3" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+
+    <Affliction
+    identifier="precodered"
+    nameidentifier="precodered"
+    type="talentbuff"
+    isbuff="true"
+    limbspecific="false"
+    maxstrength="1"
+    showiconthreshold="1000"
+    treatmentthreshold="1000"
+    showicontoothersthreshold="1000"
+    showinhealthscannerthreshold="1000"
+    iconcolors="0,0,0">
+    <Icon texture="Content/UI/TalentsIcons4.png" sheetindex="2,3" sheetelementsize="128,128" color="10,193,114,255" origin="0,0" />
+  </Affliction>
+
 </Afflictions>

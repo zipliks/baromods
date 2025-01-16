@@ -1102,7 +1102,8 @@
         <StatusEffect type="OnUse" target="Character" disabledeltatime="true" delay="0.05">
           <Conditional gygaxoverload="lt 1" />
           <Affliction identifier="gygaxoverload" amount="60" />
-          <sound file="%ModDir%/Sounds/stunbaton.ogg" type="OnUse" range="500.0" />
+          <Sound file="%ModDir%/Sounds/stunbaton1.ogg" range="500" volume="0.6" stackable="true" selectionmode="random" />
+          <Sound file="%ModDir%/Sounds/stunbaton2.ogg" range="500" volume="0.6" stackable="true" />
         </StatusEffect>
         <StatusEffect type="OnUse" duration="5" disabledeltatime="true" target="Character" camerashake="5" setvalue="true" stackable="false">
           <Conditional gygaxoverload="lt 1" />
@@ -1261,7 +1262,8 @@
         <Affliction identifier="stun" strength="0.5" />
         <Affliction identifier="electricshock" strength="60" />
         <Explosion range="100.0" force="0.1" shockwave="false" flames="false" smoke="false" underwaterbubble="false" camerashake="6.0" />
-        <Sound file="%ModDir%/Sounds/stunbaton.ogg" range="500" volume="0.6" stackable="true" />
+        <Sound file="%ModDir%/Sounds/stunbaton1.ogg" range="500" volume="0.6" stackable="true" selectionmode="random" />
+        <Sound file="%ModDir%/Sounds/stunbaton2.ogg" range="500" volume="0.6" stackable="true" />
         <ParticleEmitter particle="ElectricShock" DistanceMin="5" DistanceMax="20" ParticleAmount="3" ScaleMin="0.07" ScaleMax="0.1" />
       </StatusEffect>
       <StatusEffect type="OnUse" target="UseTarget" disabledeltatime="true">
@@ -1269,7 +1271,8 @@
         <Affliction identifier="stun" strength="0.5" />
         <Affliction identifier="electricshock" strength="100" />
         <Explosion range="100.0" force="0.5" shockwave="false" flames="false" smoke="true" underwaterbubble="false" camerashake="6.0" />
-        <Sound file="%ModDir%/Sounds/stunbaton.ogg" range="500" volume="0.6" stackable="true" />
+        <Sound file="%ModDir%/Sounds/stunbaton1.ogg" range="500" volume="0.6" stackable="true" selectionmode="random" />
+        <Sound file="%ModDir%/Sounds/stunbaton2.ogg" range="500" volume="0.6" stackable="true" />
         <ParticleEmitter particle="ElectricShock" DistanceMin="10" DistanceMax="25" ParticleAmount="5" ScaleMin="0.1" ScaleMax="0.12" />
       </StatusEffect>
     </MeleeWeapon>

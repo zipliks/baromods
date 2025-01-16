@@ -7,6 +7,6 @@
 	<Talents file="%moddir%/XML/talents.xml" />
  	<Character file="%ModDir%/Characters/Floppa/floppa.xml" />
 
-	<Text file="%moddir%/Language/english.xml" />
-	<Text file="%moddir%/Language/russian.xml" />	
+	<Text file="%moddir%/Language/English.xml" />
+	<Text file="%moddir%/Language/Russian.xml" />	
 </contentpackage>

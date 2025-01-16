@@ -10,14 +10,17 @@ local function printArrow(source_x, source_y, target_x, target_y)
     if source_x < min_x or source_x > max_x then
         if source_x < target_x then
             return string.format(">>> [%s, %s]", target_x, target_y)
+        elseif source_x == target_x then
+            return string.format("Here")
         else
-
             return string.format("<<< [%s, %s]", target_x, target_y)
         end
     else
         -- Up and down arrows, the game doesn't support unicode
         if source_y < target_y then
             return "/\\ /\\ /\\"
+        elseif source_x == target_x then
+            return string.format("Here")
         else
             return "\\/ \\/ \\/"
         end
@@ -108,14 +111,14 @@ local function onCharacterDeath(character)
     if not character then return end
     if not Utils.HasAffliction(character, "deathalarm") then return end
 
-    local location = nil
-    if character.CurrentHull == nil then
-        location = string.format("%s, %s", math.floor(character.WorldPosition.X), math.floor(character.WorldPosition.Y))
-    else
+    local location = "somewhere"
+    local message = nil
+    if character.CurrentHull ~= nil then
         location = tostring(character.CurrentHull.DisplayName)
+        message = string.format("%s has died at %s", character.Name, location)
+    else
+        message = string.format("%s has died on the open sea", character.Name)
     end
-
-    local message = character.Name .. " has died at " .. location
 
     sendMessageToAll("Death Alarm", message, Color(255, 0, 0, 255))
     Utils.RemoveElementByName(notified, character)
@@ -124,9 +127,16 @@ end
 
 local function onCharacterCritical(_, _, character, _, _)
     if Utils.IsInTable(notified, character) then return end
-    local location = tostring(character.CurrentHull.DisplayName)
-    local message = character.Name .. " is in critical at " .. location
 
+    local location = "somewhere"
+    local message = nil
+    if character.CurrentHull ~= nil then
+        location = tostring(character.CurrentHull.DisplayName)
+        message = string.format("%s is in critical at %s", character.Name, location)
+    else
+        message = string.format("%s is in critical on the open sea", character.Name)
+    end
+    
     sendMessageToAll("Death Alarm", message, Color(255, 255, 0, 255))
     table.insert(notified, character)
 end
@@ -146,7 +156,6 @@ end
 Hook.Add("character.death", "deathalarmdead", onCharacterDeath)
 Hook.Add("character.critical", "deathalarmcrit", onCharacterCritical)
 Hook.Add("item.applyTreatment", "deathalarmrevive", onCharacterRevive)
-
 
 Hook.Add("item.secondaryUse", "crewtracker.use", function(item, itemUser, _)
     local cooldownDuration = 1.5
